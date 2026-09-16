@@ -151,7 +151,7 @@ class _MembersViewState extends State<MembersView> {
                         ),
                         success: (members) {
                           final List<PlutoRow> allRows = [];
-
+                          
                           final List<Subscription> allSubscriptions = subState
                               .maybeWhen(
                                 success: (subscriptions) => subscriptions,
@@ -175,7 +175,6 @@ class _MembersViewState extends State<MembersView> {
                                 lastSub?.isActiveAt(DateTime.now()) ?? false;
                             final String status = isActive ? 'نشط' : 'غير نشط';
 
-                            // تطبيق الفلتر بناءً على زر الفلترة المحدد
                             if (selectedFilter == 'نشط' && !isActive) continue;
                             if (selectedFilter == 'غير نشط' && isActive)
                               continue;
