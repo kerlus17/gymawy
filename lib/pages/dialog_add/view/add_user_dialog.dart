@@ -5,7 +5,7 @@ import 'package:systeam_gym/data/models/gym_member/gym_member.dart';
 import 'package:systeam_gym/data/models/subscription/subscription.dart';
 import 'package:systeam_gym/data/presentation/member/member_bloc.dart';
 import 'package:systeam_gym/data/presentation/subscription/subscription_bloc.dart';
-import 'package:systeam_gym/pages/DailyLoginScreen/widget/text_dialog.dart';
+import 'package:systeam_gym/pages/dialog_add/widget/text_dialog.dart'; 
 import 'package:systeam_gym/test_widgets/dashbord_screen.dart';
 import 'package:systeam_gym/shared/btns/custom_btn.dart';
 import 'package:systeam_gym/shared/taxt/custom_taxtfield.dart';
@@ -85,10 +85,10 @@ class _AddUserDialogState extends State<AddUserDialog> {
                   const SizedBox(height: 8),
                   CustomTaxtfield(
                     hint: '',
+                    icon: Icons.badge_outlined,
                     controller: idcontroller,
                     keyboardType: TextInputType.number,
 
-                    icon: Icons.badge_outlined,
                   ),
                   const SizedBox(height: 15),
                   TextDialog(text: 'Phone Number'),

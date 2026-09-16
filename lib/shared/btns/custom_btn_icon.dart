@@ -1,5 +1,6 @@
 
 import 'package:flutter/material.dart';
+import 'package:systeam_gym/core/constants/app_colors.dart';
 
 class CustomBtnIcon extends StatelessWidget {
   final IconData icon;
@@ -21,6 +22,7 @@ class CustomBtnIcon extends StatelessWidget {
       borderRadius: BorderRadius.circular(9),
       child: InkWell(
         onTap: onTap,
+        hoverColor: ColorsMenege.hover_gray,
         borderRadius: BorderRadius.circular(9),
         child: SizedBox(
           width: 40,
