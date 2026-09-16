@@ -8,4 +8,5 @@ class MemberState with _$MemberState {
   const factory MemberState.success({required List<GymMember> members}) = SuccessState;
 
   const factory MemberState.error({required String errMsg}) = ErrorState;
+  
 }
