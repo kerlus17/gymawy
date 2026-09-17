@@ -9,4 +9,7 @@ class AttendsState with _$AttendsState {
       SuccessState;
 
   const factory AttendsState.error({required String errMsg}) = ErrorState;
+  
+  const factory AttendsState.successGetAttendanceWithDetails({required List<AttendanceWithMemberDetails> attendsWithDetails}) =
+      successGetAttendanceWithDetailsState;
 }

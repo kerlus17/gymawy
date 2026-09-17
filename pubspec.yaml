@@ -7,8 +7,11 @@ version: 1.0.0+1
 environment:
   sdk: ">=3.11.4 <4.0.0"
 
+
+#flutter pub run build_runner build --delete-conflicting-outputs
 dependencies:
   collapsible_sidebar: ^2.0.7
+  collection: ^1.19.1
   cupertino_icons: ^1.0.8
   easy_date_timeline: ^2.0.9
   flutter:
@@ -22,6 +25,8 @@ dependencies:
   material_ui: 0.0.1
   pluto_grid: ^8.1.0
   sidebarx: ^0.17.2
+  flutter_screenutil: ^5.9.3
+  fluttertoast: ^8.2.8
 
 dev_dependencies:
   build_runner: ^2.4.9

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 
 // استدعي الـ Models والـ Adapters بتاعتك هنا
@@ -28,15 +29,20 @@ void main() async {
 
   runApp(const MyApp());
 }
-
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: mainSidebar(),
+    return ScreenUtilInit(
+      designSize: const Size(1440, 900), // حسب تصميمك (Desktop/Tablet)
+      minTextAdapt: true,
+      builder: (context, child) {
+        return const MaterialApp(
+          debugShowCheckedModeBanner: false,
+          home: mainSidebar(),
+        );
+      },
     );
   }
 }

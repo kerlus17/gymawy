@@ -35,6 +35,15 @@ class MemberData {
       textAlign: PlutoColumnTextAlign.center,
       titleTextAlign: PlutoColumnTextAlign.center,
     ),
+     PlutoColumn(
+      title: 'id',
+      field: 'id',
+      type: PlutoColumnType.text(),
+      width: 120,
+      minWidth: 110,
+      textAlign: PlutoColumnTextAlign.center,
+      titleTextAlign: PlutoColumnTextAlign.center,
+    ),
     PlutoColumn(
       title: 'رقم الجوال',
       field: 'phone',

@@ -6,4 +6,5 @@ class MemberEvent with _$MemberEvent {
   const factory MemberEvent.addNewMember({required GymMember member}) = AddNewMemberEvent;
   const factory MemberEvent.getAllMembers() = GetAllMembersEvent;
 
+
 }

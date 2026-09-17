@@ -22,6 +22,7 @@ mixin _$AttendsEvent {
     required TResult Function() getAllAtteds,
     required TResult Function(DateTime date) getAttendsOfDay,
     required TResult Function(String memberId) getAttendsOfMember,
+    required TResult Function(String memberId) addAttendance,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -30,6 +31,7 @@ mixin _$AttendsEvent {
     TResult? Function()? getAllAtteds,
     TResult? Function(DateTime date)? getAttendsOfDay,
     TResult? Function(String memberId)? getAttendsOfMember,
+    TResult? Function(String memberId)? addAttendance,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -38,6 +40,7 @@ mixin _$AttendsEvent {
     TResult Function()? getAllAtteds,
     TResult Function(DateTime date)? getAttendsOfDay,
     TResult Function(String memberId)? getAttendsOfMember,
+    TResult Function(String memberId)? addAttendance,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -47,6 +50,7 @@ mixin _$AttendsEvent {
     required TResult Function(GetAllAttedsEvent value) getAllAtteds,
     required TResult Function(GetAttendsOfDayEvent value) getAttendsOfDay,
     required TResult Function(GetAttendsOfMemberEvent value) getAttendsOfMember,
+    required TResult Function(AddAttendanceEvent value) addAttendance,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -55,6 +59,7 @@ mixin _$AttendsEvent {
     TResult? Function(GetAllAttedsEvent value)? getAllAtteds,
     TResult? Function(GetAttendsOfDayEvent value)? getAttendsOfDay,
     TResult? Function(GetAttendsOfMemberEvent value)? getAttendsOfMember,
+    TResult? Function(AddAttendanceEvent value)? addAttendance,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -63,6 +68,7 @@ mixin _$AttendsEvent {
     TResult Function(GetAllAttedsEvent value)? getAllAtteds,
     TResult Function(GetAttendsOfDayEvent value)? getAttendsOfDay,
     TResult Function(GetAttendsOfMemberEvent value)? getAttendsOfMember,
+    TResult Function(AddAttendanceEvent value)? addAttendance,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -128,6 +134,7 @@ class _$StartedImpl implements _Started {
     required TResult Function() getAllAtteds,
     required TResult Function(DateTime date) getAttendsOfDay,
     required TResult Function(String memberId) getAttendsOfMember,
+    required TResult Function(String memberId) addAttendance,
   }) {
     return started();
   }
@@ -139,6 +146,7 @@ class _$StartedImpl implements _Started {
     TResult? Function()? getAllAtteds,
     TResult? Function(DateTime date)? getAttendsOfDay,
     TResult? Function(String memberId)? getAttendsOfMember,
+    TResult? Function(String memberId)? addAttendance,
   }) {
     return started?.call();
   }
@@ -150,6 +158,7 @@ class _$StartedImpl implements _Started {
     TResult Function()? getAllAtteds,
     TResult Function(DateTime date)? getAttendsOfDay,
     TResult Function(String memberId)? getAttendsOfMember,
+    TResult Function(String memberId)? addAttendance,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -165,6 +174,7 @@ class _$StartedImpl implements _Started {
     required TResult Function(GetAllAttedsEvent value) getAllAtteds,
     required TResult Function(GetAttendsOfDayEvent value) getAttendsOfDay,
     required TResult Function(GetAttendsOfMemberEvent value) getAttendsOfMember,
+    required TResult Function(AddAttendanceEvent value) addAttendance,
   }) {
     return started(this);
   }
@@ -176,6 +186,7 @@ class _$StartedImpl implements _Started {
     TResult? Function(GetAllAttedsEvent value)? getAllAtteds,
     TResult? Function(GetAttendsOfDayEvent value)? getAttendsOfDay,
     TResult? Function(GetAttendsOfMemberEvent value)? getAttendsOfMember,
+    TResult? Function(AddAttendanceEvent value)? addAttendance,
   }) {
     return started?.call(this);
   }
@@ -187,6 +198,7 @@ class _$StartedImpl implements _Started {
     TResult Function(GetAllAttedsEvent value)? getAllAtteds,
     TResult Function(GetAttendsOfDayEvent value)? getAttendsOfDay,
     TResult Function(GetAttendsOfMemberEvent value)? getAttendsOfMember,
+    TResult Function(AddAttendanceEvent value)? addAttendance,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -242,6 +254,7 @@ class _$GetAllAttedsEventImpl implements GetAllAttedsEvent {
     required TResult Function() getAllAtteds,
     required TResult Function(DateTime date) getAttendsOfDay,
     required TResult Function(String memberId) getAttendsOfMember,
+    required TResult Function(String memberId) addAttendance,
   }) {
     return getAllAtteds();
   }
@@ -253,6 +266,7 @@ class _$GetAllAttedsEventImpl implements GetAllAttedsEvent {
     TResult? Function()? getAllAtteds,
     TResult? Function(DateTime date)? getAttendsOfDay,
     TResult? Function(String memberId)? getAttendsOfMember,
+    TResult? Function(String memberId)? addAttendance,
   }) {
     return getAllAtteds?.call();
   }
@@ -264,6 +278,7 @@ class _$GetAllAttedsEventImpl implements GetAllAttedsEvent {
     TResult Function()? getAllAtteds,
     TResult Function(DateTime date)? getAttendsOfDay,
     TResult Function(String memberId)? getAttendsOfMember,
+    TResult Function(String memberId)? addAttendance,
     required TResult orElse(),
   }) {
     if (getAllAtteds != null) {
@@ -279,6 +294,7 @@ class _$GetAllAttedsEventImpl implements GetAllAttedsEvent {
     required TResult Function(GetAllAttedsEvent value) getAllAtteds,
     required TResult Function(GetAttendsOfDayEvent value) getAttendsOfDay,
     required TResult Function(GetAttendsOfMemberEvent value) getAttendsOfMember,
+    required TResult Function(AddAttendanceEvent value) addAttendance,
   }) {
     return getAllAtteds(this);
   }
@@ -290,6 +306,7 @@ class _$GetAllAttedsEventImpl implements GetAllAttedsEvent {
     TResult? Function(GetAllAttedsEvent value)? getAllAtteds,
     TResult? Function(GetAttendsOfDayEvent value)? getAttendsOfDay,
     TResult? Function(GetAttendsOfMemberEvent value)? getAttendsOfMember,
+    TResult? Function(AddAttendanceEvent value)? addAttendance,
   }) {
     return getAllAtteds?.call(this);
   }
@@ -301,6 +318,7 @@ class _$GetAllAttedsEventImpl implements GetAllAttedsEvent {
     TResult Function(GetAllAttedsEvent value)? getAllAtteds,
     TResult Function(GetAttendsOfDayEvent value)? getAttendsOfDay,
     TResult Function(GetAttendsOfMemberEvent value)? getAttendsOfMember,
+    TResult Function(AddAttendanceEvent value)? addAttendance,
     required TResult orElse(),
   }) {
     if (getAllAtteds != null) {
@@ -384,6 +402,7 @@ class _$GetAttendsOfDayEventImpl implements GetAttendsOfDayEvent {
     required TResult Function() getAllAtteds,
     required TResult Function(DateTime date) getAttendsOfDay,
     required TResult Function(String memberId) getAttendsOfMember,
+    required TResult Function(String memberId) addAttendance,
   }) {
     return getAttendsOfDay(date);
   }
@@ -395,6 +414,7 @@ class _$GetAttendsOfDayEventImpl implements GetAttendsOfDayEvent {
     TResult? Function()? getAllAtteds,
     TResult? Function(DateTime date)? getAttendsOfDay,
     TResult? Function(String memberId)? getAttendsOfMember,
+    TResult? Function(String memberId)? addAttendance,
   }) {
     return getAttendsOfDay?.call(date);
   }
@@ -406,6 +426,7 @@ class _$GetAttendsOfDayEventImpl implements GetAttendsOfDayEvent {
     TResult Function()? getAllAtteds,
     TResult Function(DateTime date)? getAttendsOfDay,
     TResult Function(String memberId)? getAttendsOfMember,
+    TResult Function(String memberId)? addAttendance,
     required TResult orElse(),
   }) {
     if (getAttendsOfDay != null) {
@@ -421,6 +442,7 @@ class _$GetAttendsOfDayEventImpl implements GetAttendsOfDayEvent {
     required TResult Function(GetAllAttedsEvent value) getAllAtteds,
     required TResult Function(GetAttendsOfDayEvent value) getAttendsOfDay,
     required TResult Function(GetAttendsOfMemberEvent value) getAttendsOfMember,
+    required TResult Function(AddAttendanceEvent value) addAttendance,
   }) {
     return getAttendsOfDay(this);
   }
@@ -432,6 +454,7 @@ class _$GetAttendsOfDayEventImpl implements GetAttendsOfDayEvent {
     TResult? Function(GetAllAttedsEvent value)? getAllAtteds,
     TResult? Function(GetAttendsOfDayEvent value)? getAttendsOfDay,
     TResult? Function(GetAttendsOfMemberEvent value)? getAttendsOfMember,
+    TResult? Function(AddAttendanceEvent value)? addAttendance,
   }) {
     return getAttendsOfDay?.call(this);
   }
@@ -443,6 +466,7 @@ class _$GetAttendsOfDayEventImpl implements GetAttendsOfDayEvent {
     TResult Function(GetAllAttedsEvent value)? getAllAtteds,
     TResult Function(GetAttendsOfDayEvent value)? getAttendsOfDay,
     TResult Function(GetAttendsOfMemberEvent value)? getAttendsOfMember,
+    TResult Function(AddAttendanceEvent value)? addAttendance,
     required TResult orElse(),
   }) {
     if (getAttendsOfDay != null) {
@@ -534,6 +558,7 @@ class _$GetAttendsOfMemberEventImpl implements GetAttendsOfMemberEvent {
     required TResult Function() getAllAtteds,
     required TResult Function(DateTime date) getAttendsOfDay,
     required TResult Function(String memberId) getAttendsOfMember,
+    required TResult Function(String memberId) addAttendance,
   }) {
     return getAttendsOfMember(memberId);
   }
@@ -545,6 +570,7 @@ class _$GetAttendsOfMemberEventImpl implements GetAttendsOfMemberEvent {
     TResult? Function()? getAllAtteds,
     TResult? Function(DateTime date)? getAttendsOfDay,
     TResult? Function(String memberId)? getAttendsOfMember,
+    TResult? Function(String memberId)? addAttendance,
   }) {
     return getAttendsOfMember?.call(memberId);
   }
@@ -556,6 +582,7 @@ class _$GetAttendsOfMemberEventImpl implements GetAttendsOfMemberEvent {
     TResult Function()? getAllAtteds,
     TResult Function(DateTime date)? getAttendsOfDay,
     TResult Function(String memberId)? getAttendsOfMember,
+    TResult Function(String memberId)? addAttendance,
     required TResult orElse(),
   }) {
     if (getAttendsOfMember != null) {
@@ -571,6 +598,7 @@ class _$GetAttendsOfMemberEventImpl implements GetAttendsOfMemberEvent {
     required TResult Function(GetAllAttedsEvent value) getAllAtteds,
     required TResult Function(GetAttendsOfDayEvent value) getAttendsOfDay,
     required TResult Function(GetAttendsOfMemberEvent value) getAttendsOfMember,
+    required TResult Function(AddAttendanceEvent value) addAttendance,
   }) {
     return getAttendsOfMember(this);
   }
@@ -582,6 +610,7 @@ class _$GetAttendsOfMemberEventImpl implements GetAttendsOfMemberEvent {
     TResult? Function(GetAllAttedsEvent value)? getAllAtteds,
     TResult? Function(GetAttendsOfDayEvent value)? getAttendsOfDay,
     TResult? Function(GetAttendsOfMemberEvent value)? getAttendsOfMember,
+    TResult? Function(AddAttendanceEvent value)? addAttendance,
   }) {
     return getAttendsOfMember?.call(this);
   }
@@ -593,6 +622,7 @@ class _$GetAttendsOfMemberEventImpl implements GetAttendsOfMemberEvent {
     TResult Function(GetAllAttedsEvent value)? getAllAtteds,
     TResult Function(GetAttendsOfDayEvent value)? getAttendsOfDay,
     TResult Function(GetAttendsOfMemberEvent value)? getAttendsOfMember,
+    TResult Function(AddAttendanceEvent value)? addAttendance,
     required TResult orElse(),
   }) {
     if (getAttendsOfMember != null) {
@@ -613,6 +643,160 @@ abstract class GetAttendsOfMemberEvent implements AttendsEvent {
 }
 
 /// @nodoc
+abstract class _$$AddAttendanceEventImplCopyWith<$Res> {
+  factory _$$AddAttendanceEventImplCopyWith(_$AddAttendanceEventImpl value,
+          $Res Function(_$AddAttendanceEventImpl) then) =
+      __$$AddAttendanceEventImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String memberId});
+}
+
+/// @nodoc
+class __$$AddAttendanceEventImplCopyWithImpl<$Res>
+    extends _$AttendsEventCopyWithImpl<$Res, _$AddAttendanceEventImpl>
+    implements _$$AddAttendanceEventImplCopyWith<$Res> {
+  __$$AddAttendanceEventImplCopyWithImpl(_$AddAttendanceEventImpl _value,
+      $Res Function(_$AddAttendanceEventImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? memberId = null,
+  }) {
+    return _then(_$AddAttendanceEventImpl(
+      memberId: null == memberId
+          ? _value.memberId
+          : memberId // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$AddAttendanceEventImpl implements AddAttendanceEvent {
+  const _$AddAttendanceEventImpl({required this.memberId});
+
+  @override
+  final String memberId;
+
+  @override
+  String toString() {
+    return 'AttendsEvent.addAttendance(memberId: $memberId)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$AddAttendanceEventImpl &&
+            (identical(other.memberId, memberId) ||
+                other.memberId == memberId));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, memberId);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$AddAttendanceEventImplCopyWith<_$AddAttendanceEventImpl> get copyWith =>
+      __$$AddAttendanceEventImplCopyWithImpl<_$AddAttendanceEventImpl>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() started,
+    required TResult Function() getAllAtteds,
+    required TResult Function(DateTime date) getAttendsOfDay,
+    required TResult Function(String memberId) getAttendsOfMember,
+    required TResult Function(String memberId) addAttendance,
+  }) {
+    return addAttendance(memberId);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? started,
+    TResult? Function()? getAllAtteds,
+    TResult? Function(DateTime date)? getAttendsOfDay,
+    TResult? Function(String memberId)? getAttendsOfMember,
+    TResult? Function(String memberId)? addAttendance,
+  }) {
+    return addAttendance?.call(memberId);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? started,
+    TResult Function()? getAllAtteds,
+    TResult Function(DateTime date)? getAttendsOfDay,
+    TResult Function(String memberId)? getAttendsOfMember,
+    TResult Function(String memberId)? addAttendance,
+    required TResult orElse(),
+  }) {
+    if (addAttendance != null) {
+      return addAttendance(memberId);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Started value) started,
+    required TResult Function(GetAllAttedsEvent value) getAllAtteds,
+    required TResult Function(GetAttendsOfDayEvent value) getAttendsOfDay,
+    required TResult Function(GetAttendsOfMemberEvent value) getAttendsOfMember,
+    required TResult Function(AddAttendanceEvent value) addAttendance,
+  }) {
+    return addAttendance(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Started value)? started,
+    TResult? Function(GetAllAttedsEvent value)? getAllAtteds,
+    TResult? Function(GetAttendsOfDayEvent value)? getAttendsOfDay,
+    TResult? Function(GetAttendsOfMemberEvent value)? getAttendsOfMember,
+    TResult? Function(AddAttendanceEvent value)? addAttendance,
+  }) {
+    return addAttendance?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Started value)? started,
+    TResult Function(GetAllAttedsEvent value)? getAllAtteds,
+    TResult Function(GetAttendsOfDayEvent value)? getAttendsOfDay,
+    TResult Function(GetAttendsOfMemberEvent value)? getAttendsOfMember,
+    TResult Function(AddAttendanceEvent value)? addAttendance,
+    required TResult orElse(),
+  }) {
+    if (addAttendance != null) {
+      return addAttendance(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class AddAttendanceEvent implements AttendsEvent {
+  const factory AddAttendanceEvent({required final String memberId}) =
+      _$AddAttendanceEventImpl;
+
+  String get memberId;
+  @JsonKey(ignore: true)
+  _$$AddAttendanceEventImplCopyWith<_$AddAttendanceEventImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
 mixin _$AttendsState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
@@ -620,6 +804,9 @@ mixin _$AttendsState {
     required TResult Function() loading,
     required TResult Function(List<Attendance> attends) success,
     required TResult Function(String errMsg) error,
+    required TResult Function(
+            List<AttendanceWithMemberDetails> attendsWithDetails)
+        successGetAttendanceWithDetails,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -628,6 +815,8 @@ mixin _$AttendsState {
     TResult? Function()? loading,
     TResult? Function(List<Attendance> attends)? success,
     TResult? Function(String errMsg)? error,
+    TResult? Function(List<AttendanceWithMemberDetails> attendsWithDetails)?
+        successGetAttendanceWithDetails,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -636,6 +825,8 @@ mixin _$AttendsState {
     TResult Function()? loading,
     TResult Function(List<Attendance> attends)? success,
     TResult Function(String errMsg)? error,
+    TResult Function(List<AttendanceWithMemberDetails> attendsWithDetails)?
+        successGetAttendanceWithDetails,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -645,6 +836,8 @@ mixin _$AttendsState {
     required TResult Function(LoadingState value) loading,
     required TResult Function(SuccessState value) success,
     required TResult Function(ErrorState value) error,
+    required TResult Function(successGetAttendanceWithDetailsState value)
+        successGetAttendanceWithDetails,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -653,6 +846,8 @@ mixin _$AttendsState {
     TResult? Function(LoadingState value)? loading,
     TResult? Function(SuccessState value)? success,
     TResult? Function(ErrorState value)? error,
+    TResult? Function(successGetAttendanceWithDetailsState value)?
+        successGetAttendanceWithDetails,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -661,6 +856,8 @@ mixin _$AttendsState {
     TResult Function(LoadingState value)? loading,
     TResult Function(SuccessState value)? success,
     TResult Function(ErrorState value)? error,
+    TResult Function(successGetAttendanceWithDetailsState value)?
+        successGetAttendanceWithDetails,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -726,6 +923,9 @@ class _$InitialImpl implements _Initial {
     required TResult Function() loading,
     required TResult Function(List<Attendance> attends) success,
     required TResult Function(String errMsg) error,
+    required TResult Function(
+            List<AttendanceWithMemberDetails> attendsWithDetails)
+        successGetAttendanceWithDetails,
   }) {
     return initial();
   }
@@ -737,6 +937,8 @@ class _$InitialImpl implements _Initial {
     TResult? Function()? loading,
     TResult? Function(List<Attendance> attends)? success,
     TResult? Function(String errMsg)? error,
+    TResult? Function(List<AttendanceWithMemberDetails> attendsWithDetails)?
+        successGetAttendanceWithDetails,
   }) {
     return initial?.call();
   }
@@ -748,6 +950,8 @@ class _$InitialImpl implements _Initial {
     TResult Function()? loading,
     TResult Function(List<Attendance> attends)? success,
     TResult Function(String errMsg)? error,
+    TResult Function(List<AttendanceWithMemberDetails> attendsWithDetails)?
+        successGetAttendanceWithDetails,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -763,6 +967,8 @@ class _$InitialImpl implements _Initial {
     required TResult Function(LoadingState value) loading,
     required TResult Function(SuccessState value) success,
     required TResult Function(ErrorState value) error,
+    required TResult Function(successGetAttendanceWithDetailsState value)
+        successGetAttendanceWithDetails,
   }) {
     return initial(this);
   }
@@ -774,6 +980,8 @@ class _$InitialImpl implements _Initial {
     TResult? Function(LoadingState value)? loading,
     TResult? Function(SuccessState value)? success,
     TResult? Function(ErrorState value)? error,
+    TResult? Function(successGetAttendanceWithDetailsState value)?
+        successGetAttendanceWithDetails,
   }) {
     return initial?.call(this);
   }
@@ -785,6 +993,8 @@ class _$InitialImpl implements _Initial {
     TResult Function(LoadingState value)? loading,
     TResult Function(SuccessState value)? success,
     TResult Function(ErrorState value)? error,
+    TResult Function(successGetAttendanceWithDetailsState value)?
+        successGetAttendanceWithDetails,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -840,6 +1050,9 @@ class _$LoadingStateImpl implements LoadingState {
     required TResult Function() loading,
     required TResult Function(List<Attendance> attends) success,
     required TResult Function(String errMsg) error,
+    required TResult Function(
+            List<AttendanceWithMemberDetails> attendsWithDetails)
+        successGetAttendanceWithDetails,
   }) {
     return loading();
   }
@@ -851,6 +1064,8 @@ class _$LoadingStateImpl implements LoadingState {
     TResult? Function()? loading,
     TResult? Function(List<Attendance> attends)? success,
     TResult? Function(String errMsg)? error,
+    TResult? Function(List<AttendanceWithMemberDetails> attendsWithDetails)?
+        successGetAttendanceWithDetails,
   }) {
     return loading?.call();
   }
@@ -862,6 +1077,8 @@ class _$LoadingStateImpl implements LoadingState {
     TResult Function()? loading,
     TResult Function(List<Attendance> attends)? success,
     TResult Function(String errMsg)? error,
+    TResult Function(List<AttendanceWithMemberDetails> attendsWithDetails)?
+        successGetAttendanceWithDetails,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -877,6 +1094,8 @@ class _$LoadingStateImpl implements LoadingState {
     required TResult Function(LoadingState value) loading,
     required TResult Function(SuccessState value) success,
     required TResult Function(ErrorState value) error,
+    required TResult Function(successGetAttendanceWithDetailsState value)
+        successGetAttendanceWithDetails,
   }) {
     return loading(this);
   }
@@ -888,6 +1107,8 @@ class _$LoadingStateImpl implements LoadingState {
     TResult? Function(LoadingState value)? loading,
     TResult? Function(SuccessState value)? success,
     TResult? Function(ErrorState value)? error,
+    TResult? Function(successGetAttendanceWithDetailsState value)?
+        successGetAttendanceWithDetails,
   }) {
     return loading?.call(this);
   }
@@ -899,6 +1120,8 @@ class _$LoadingStateImpl implements LoadingState {
     TResult Function(LoadingState value)? loading,
     TResult Function(SuccessState value)? success,
     TResult Function(ErrorState value)? error,
+    TResult Function(successGetAttendanceWithDetailsState value)?
+        successGetAttendanceWithDetails,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -987,6 +1210,9 @@ class _$SuccessStateImpl implements SuccessState {
     required TResult Function() loading,
     required TResult Function(List<Attendance> attends) success,
     required TResult Function(String errMsg) error,
+    required TResult Function(
+            List<AttendanceWithMemberDetails> attendsWithDetails)
+        successGetAttendanceWithDetails,
   }) {
     return success(attends);
   }
@@ -998,6 +1224,8 @@ class _$SuccessStateImpl implements SuccessState {
     TResult? Function()? loading,
     TResult? Function(List<Attendance> attends)? success,
     TResult? Function(String errMsg)? error,
+    TResult? Function(List<AttendanceWithMemberDetails> attendsWithDetails)?
+        successGetAttendanceWithDetails,
   }) {
     return success?.call(attends);
   }
@@ -1009,6 +1237,8 @@ class _$SuccessStateImpl implements SuccessState {
     TResult Function()? loading,
     TResult Function(List<Attendance> attends)? success,
     TResult Function(String errMsg)? error,
+    TResult Function(List<AttendanceWithMemberDetails> attendsWithDetails)?
+        successGetAttendanceWithDetails,
     required TResult orElse(),
   }) {
     if (success != null) {
@@ -1024,6 +1254,8 @@ class _$SuccessStateImpl implements SuccessState {
     required TResult Function(LoadingState value) loading,
     required TResult Function(SuccessState value) success,
     required TResult Function(ErrorState value) error,
+    required TResult Function(successGetAttendanceWithDetailsState value)
+        successGetAttendanceWithDetails,
   }) {
     return success(this);
   }
@@ -1035,6 +1267,8 @@ class _$SuccessStateImpl implements SuccessState {
     TResult? Function(LoadingState value)? loading,
     TResult? Function(SuccessState value)? success,
     TResult? Function(ErrorState value)? error,
+    TResult? Function(successGetAttendanceWithDetailsState value)?
+        successGetAttendanceWithDetails,
   }) {
     return success?.call(this);
   }
@@ -1046,6 +1280,8 @@ class _$SuccessStateImpl implements SuccessState {
     TResult Function(LoadingState value)? loading,
     TResult Function(SuccessState value)? success,
     TResult Function(ErrorState value)? error,
+    TResult Function(successGetAttendanceWithDetailsState value)?
+        successGetAttendanceWithDetails,
     required TResult orElse(),
   }) {
     if (success != null) {
@@ -1133,6 +1369,9 @@ class _$ErrorStateImpl implements ErrorState {
     required TResult Function() loading,
     required TResult Function(List<Attendance> attends) success,
     required TResult Function(String errMsg) error,
+    required TResult Function(
+            List<AttendanceWithMemberDetails> attendsWithDetails)
+        successGetAttendanceWithDetails,
   }) {
     return error(errMsg);
   }
@@ -1144,6 +1383,8 @@ class _$ErrorStateImpl implements ErrorState {
     TResult? Function()? loading,
     TResult? Function(List<Attendance> attends)? success,
     TResult? Function(String errMsg)? error,
+    TResult? Function(List<AttendanceWithMemberDetails> attendsWithDetails)?
+        successGetAttendanceWithDetails,
   }) {
     return error?.call(errMsg);
   }
@@ -1155,6 +1396,8 @@ class _$ErrorStateImpl implements ErrorState {
     TResult Function()? loading,
     TResult Function(List<Attendance> attends)? success,
     TResult Function(String errMsg)? error,
+    TResult Function(List<AttendanceWithMemberDetails> attendsWithDetails)?
+        successGetAttendanceWithDetails,
     required TResult orElse(),
   }) {
     if (error != null) {
@@ -1170,6 +1413,8 @@ class _$ErrorStateImpl implements ErrorState {
     required TResult Function(LoadingState value) loading,
     required TResult Function(SuccessState value) success,
     required TResult Function(ErrorState value) error,
+    required TResult Function(successGetAttendanceWithDetailsState value)
+        successGetAttendanceWithDetails,
   }) {
     return error(this);
   }
@@ -1181,6 +1426,8 @@ class _$ErrorStateImpl implements ErrorState {
     TResult? Function(LoadingState value)? loading,
     TResult? Function(SuccessState value)? success,
     TResult? Function(ErrorState value)? error,
+    TResult? Function(successGetAttendanceWithDetailsState value)?
+        successGetAttendanceWithDetails,
   }) {
     return error?.call(this);
   }
@@ -1192,6 +1439,8 @@ class _$ErrorStateImpl implements ErrorState {
     TResult Function(LoadingState value)? loading,
     TResult Function(SuccessState value)? success,
     TResult Function(ErrorState value)? error,
+    TResult Function(successGetAttendanceWithDetailsState value)?
+        successGetAttendanceWithDetails,
     required TResult orElse(),
   }) {
     if (error != null) {
@@ -1208,4 +1457,181 @@ abstract class ErrorState implements AttendsState {
   @JsonKey(ignore: true)
   _$$ErrorStateImplCopyWith<_$ErrorStateImpl> get copyWith =>
       throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$successGetAttendanceWithDetailsStateImplCopyWith<$Res> {
+  factory _$$successGetAttendanceWithDetailsStateImplCopyWith(
+          _$successGetAttendanceWithDetailsStateImpl value,
+          $Res Function(_$successGetAttendanceWithDetailsStateImpl) then) =
+      __$$successGetAttendanceWithDetailsStateImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({List<AttendanceWithMemberDetails> attendsWithDetails});
+}
+
+/// @nodoc
+class __$$successGetAttendanceWithDetailsStateImplCopyWithImpl<$Res>
+    extends _$AttendsStateCopyWithImpl<$Res,
+        _$successGetAttendanceWithDetailsStateImpl>
+    implements _$$successGetAttendanceWithDetailsStateImplCopyWith<$Res> {
+  __$$successGetAttendanceWithDetailsStateImplCopyWithImpl(
+      _$successGetAttendanceWithDetailsStateImpl _value,
+      $Res Function(_$successGetAttendanceWithDetailsStateImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? attendsWithDetails = null,
+  }) {
+    return _then(_$successGetAttendanceWithDetailsStateImpl(
+      attendsWithDetails: null == attendsWithDetails
+          ? _value._attendsWithDetails
+          : attendsWithDetails // ignore: cast_nullable_to_non_nullable
+              as List<AttendanceWithMemberDetails>,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$successGetAttendanceWithDetailsStateImpl
+    implements successGetAttendanceWithDetailsState {
+  const _$successGetAttendanceWithDetailsStateImpl(
+      {required final List<AttendanceWithMemberDetails> attendsWithDetails})
+      : _attendsWithDetails = attendsWithDetails;
+
+  final List<AttendanceWithMemberDetails> _attendsWithDetails;
+  @override
+  List<AttendanceWithMemberDetails> get attendsWithDetails {
+    if (_attendsWithDetails is EqualUnmodifiableListView)
+      return _attendsWithDetails;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_attendsWithDetails);
+  }
+
+  @override
+  String toString() {
+    return 'AttendsState.successGetAttendanceWithDetails(attendsWithDetails: $attendsWithDetails)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$successGetAttendanceWithDetailsStateImpl &&
+            const DeepCollectionEquality()
+                .equals(other._attendsWithDetails, _attendsWithDetails));
+  }
+
+  @override
+  int get hashCode => Object.hash(
+      runtimeType, const DeepCollectionEquality().hash(_attendsWithDetails));
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$successGetAttendanceWithDetailsStateImplCopyWith<
+          _$successGetAttendanceWithDetailsStateImpl>
+      get copyWith => __$$successGetAttendanceWithDetailsStateImplCopyWithImpl<
+          _$successGetAttendanceWithDetailsStateImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loading,
+    required TResult Function(List<Attendance> attends) success,
+    required TResult Function(String errMsg) error,
+    required TResult Function(
+            List<AttendanceWithMemberDetails> attendsWithDetails)
+        successGetAttendanceWithDetails,
+  }) {
+    return successGetAttendanceWithDetails(attendsWithDetails);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function(List<Attendance> attends)? success,
+    TResult? Function(String errMsg)? error,
+    TResult? Function(List<AttendanceWithMemberDetails> attendsWithDetails)?
+        successGetAttendanceWithDetails,
+  }) {
+    return successGetAttendanceWithDetails?.call(attendsWithDetails);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function(List<Attendance> attends)? success,
+    TResult Function(String errMsg)? error,
+    TResult Function(List<AttendanceWithMemberDetails> attendsWithDetails)?
+        successGetAttendanceWithDetails,
+    required TResult orElse(),
+  }) {
+    if (successGetAttendanceWithDetails != null) {
+      return successGetAttendanceWithDetails(attendsWithDetails);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(LoadingState value) loading,
+    required TResult Function(SuccessState value) success,
+    required TResult Function(ErrorState value) error,
+    required TResult Function(successGetAttendanceWithDetailsState value)
+        successGetAttendanceWithDetails,
+  }) {
+    return successGetAttendanceWithDetails(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(LoadingState value)? loading,
+    TResult? Function(SuccessState value)? success,
+    TResult? Function(ErrorState value)? error,
+    TResult? Function(successGetAttendanceWithDetailsState value)?
+        successGetAttendanceWithDetails,
+  }) {
+    return successGetAttendanceWithDetails?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(LoadingState value)? loading,
+    TResult Function(SuccessState value)? success,
+    TResult Function(ErrorState value)? error,
+    TResult Function(successGetAttendanceWithDetailsState value)?
+        successGetAttendanceWithDetails,
+    required TResult orElse(),
+  }) {
+    if (successGetAttendanceWithDetails != null) {
+      return successGetAttendanceWithDetails(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class successGetAttendanceWithDetailsState implements AttendsState {
+  const factory successGetAttendanceWithDetailsState(
+      {required final List<AttendanceWithMemberDetails>
+          attendsWithDetails}) = _$successGetAttendanceWithDetailsStateImpl;
+
+  List<AttendanceWithMemberDetails> get attendsWithDetails;
+  @JsonKey(ignore: true)
+  _$$successGetAttendanceWithDetailsStateImplCopyWith<
+          _$successGetAttendanceWithDetailsStateImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }

@@ -4,19 +4,17 @@ import 'package:gap/gap.dart';
 import 'package:systeam_gym/core/constants/app_colors.dart';
 
 class AttendanceCard extends StatelessWidget {
-  final String name;
-  final String id;
-  final String time;
-  final String subscriptionId;
-  
-  
+  final String? name;
+  final String? id;
+  final String? time;
+  final String? subscriptionId;
 
   const AttendanceCard({
     super.key,
-    required this.name,
-    
-    required this.time,
-    required this.id, required this.subscriptionId,
+    this.name,
+    this.time,
+    this.id,
+    this.subscriptionId,
   });
 
   @override
@@ -28,26 +26,18 @@ class AttendanceCard extends StatelessWidget {
       decoration: BoxDecoration(
         color: const Color(0xff11161d),
         borderRadius: BorderRadius.circular(9),
-        border: Border.all(
-          color: const Color(0xff202832),
-        ),
+        border: Border.all(color: const Color(0xff202832)),
       ),
       child: Row(
         children: [
-          // =========================
-          // Attendance Switch
-          // =========================
           Row(
             children: [
               Gap(10),
-                Icon(Icons.check,color: ColorsMenege.white,size: 15,),
-                Gap(10),
+              Icon(Icons.check, color: ColorsMenege.white, size: 15),
+              Gap(10),
               const Text(
                 'حضور',
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 15,
-                ),
+                style: TextStyle(color: Colors.white, fontSize: 15),
               ),
             ],
           ),
@@ -74,13 +64,12 @@ class AttendanceCard extends StatelessWidget {
                           vertical: 2,
                         ),
                         decoration: BoxDecoration(
-                          color: 
-                             const Color(0xff075f3c),
-                             
+                          color: const Color(0xff075f3c),
+
                           borderRadius: BorderRadius.circular(4),
                         ),
                         child: Text(
-                           subscriptionId ,
+                          subscriptionId ?? "",
                           style: const TextStyle(
                             color: Colors.white,
                             fontSize: 8,
@@ -92,7 +81,7 @@ class AttendanceCard extends StatelessWidget {
                       const SizedBox(width: 6),
 
                       Text(
-                        name,
+                        name ?? "",
                         style: const TextStyle(
                           color: Colors.white,
                           fontSize: 17,
@@ -105,7 +94,7 @@ class AttendanceCard extends StatelessWidget {
                   const SizedBox(height: 3),
 
                   Text(
-                    'ID$id   •   $time',
+                    'ID : $id   •   $time',
                     style: const TextStyle(
                       color: Color(0xff687483),
                       fontSize: 11,
@@ -125,9 +114,7 @@ class AttendanceCard extends StatelessWidget {
                 decoration: BoxDecoration(
                   shape: BoxShape.circle,
                   color: const Color(0xff202732),
-                  border: Border.all(
-                    color: const Color(0xff303946),
-                  ),
+                  border: Border.all(color: const Color(0xff303946)),
                 ),
                 child: const Icon(
                   Icons.person_outline,

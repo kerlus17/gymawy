@@ -6,7 +6,7 @@ import 'package:systeam_gym/data/models/gym_member/gym_member.dart';
 import 'package:systeam_gym/data/models/subscription/subscription.dart';
 import 'package:systeam_gym/data/presentation/member/member_bloc.dart';
 import 'package:systeam_gym/data/presentation/subscription/subscription_bloc.dart';
-import 'package:systeam_gym/pages/dialog_add/view/add_user_dialog.dart'; 
+import 'package:systeam_gym/pages/dialog_add/view/add_user_dialog.dart';
 import 'package:systeam_gym/pages/membersScreens/data/member_data.dart';
 import 'package:systeam_gym/pages/membersScreens/widget/members_table.dart';
 import 'package:systeam_gym/shared/btns/custom_action_btn%20.dart';
@@ -151,7 +151,8 @@ class _MembersViewState extends State<MembersView> {
                         ),
                         success: (members) {
                           final List<PlutoRow> allRows = [];
-                          
+
+                          final List<GymMember> membersList = members;
                           final List<Subscription> allSubscriptions = subState
                               .maybeWhen(
                                 success: (subscriptions) => subscriptions,
@@ -208,6 +209,7 @@ class _MembersViewState extends State<MembersView> {
                                   'startDate': PlutoCell(value: startDate),
                                   'endDate': PlutoCell(value: endDate),
                                   'actions': PlutoCell(value: ''),
+                                  'id': PlutoCell(value: member.id),
                                 },
                               ),
                             );
