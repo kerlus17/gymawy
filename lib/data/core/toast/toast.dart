@@ -11,7 +11,7 @@ class ShowToast {
     int? seconds,
   }) =>
       Fluttertoast.showToast(
-        msg: message,
+        msg: message.toString(),
         toastLength: Toast.LENGTH_LONG,
         gravity: ToastGravity.TOP,
         timeInSecForIosWeb: seconds ?? 3,
@@ -26,7 +26,7 @@ class ShowToast {
     int? seconds,
   }) =>
       Fluttertoast.showToast(
-        msg: message,
+        msg: message.toString(),
         toastLength: Toast.LENGTH_LONG,
         gravity: ToastGravity.TOP,
         timeInSecForIosWeb: seconds ?? 1,

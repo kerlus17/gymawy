@@ -6,7 +6,8 @@ import 'package:systeam_gym/pages/daliyLogin/view/dialy_login_screen.dart';
 import 'package:systeam_gym/test_widgets/header.dart';
 import 'package:systeam_gym/test_widgets/oage.dart';
 import 'package:systeam_gym/test_widgets/dashbord_screen.dart';
-import 'package:systeam_gym/pages/membersScreens/view/members_screen.dart'; 
+import 'package:systeam_gym/pages/membersScreens/view/members_screen.dart';
+import 'package:systeam_gym/test_widgets/profile.dart'; 
 
 class mainSidebar extends StatefulWidget {
   const mainSidebar({super.key});
@@ -18,7 +19,7 @@ class mainSidebar extends StatefulWidget {
 class _SidebarState extends State<mainSidebar> {
   late final SidebarXController controller;
 
-  final List<Widget> screens = [const MyWidget(), const MembersScreen(),DialyLoginScreen()  ,const MyWidget()];
+  final List<Widget> screens = [const MemberDetailsPage (), const MembersScreen(),DialyLoginScreen()  ,const MyWidget()];
 
   @override
   void initState() {
