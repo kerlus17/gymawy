@@ -21,7 +21,7 @@ class AttendanceCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       height: 62,
-      margin: const EdgeInsets.only(bottom: 8),
+      margin: const EdgeInsets.only(bottom: 10),
       padding: const EdgeInsets.symmetric(horizontal: 12),
       decoration: BoxDecoration(
         color: const Color(0xff11161d),

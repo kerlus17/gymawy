@@ -22,19 +22,17 @@ class RowTitleDailyLogin extends StatelessWidget {
           icon: Icons.hdr_plus_outlined,
           backgroundColor: ColorsMenege.red2,
           onTap: () {
+            final attendsBloc = context.read<AttendsBloc>();
             showDialog(
               context: context,
               builder: (dialogContext) {
-                return MultiBlocProvider(
-                  providers: [
-                    BlocProvider<AttendsBloc>(
-                      create: (context) => AttendsBloc(),
-                    ),
-                  ],
+                return BlocProvider.value(
+                  value: attendsBloc,
                   child: const AddAttendanceDialog(),
                 );
               },
             );
+            // تم إزالة .then() لتفادي تنفيذ جلب اليوم عند الإغلاق اليدوي بعد الخطأ
           },
           isIcon: true,
         ),
@@ -44,8 +42,6 @@ class RowTitleDailyLogin extends StatelessWidget {
     );
   }
 }
-
-
 
 class AddAttendanceDialog extends StatefulWidget {
   const AddAttendanceDialog({super.key});
@@ -101,12 +97,14 @@ class _AddAttendanceDialogState extends State<AddAttendanceDialog> {
         BlocConsumer<AttendsBloc, AttendsState>(
           listener: (context, state) {
             state.whenOrNull(
-              success: (attends) {
+              successGetAttendanceWithDetails: (attends) {
+                // عرض رسالة النجاح
                 ShowToast.showToastSuccessTop(
                   context: context,
                   message: '${_memberIdController.text} تم تسجيل حضور',
                   seconds: 1,
                 );
+
                 Navigator.of(context).pop();
               },
               error: (errMsg) {
@@ -115,6 +113,8 @@ class _AddAttendanceDialogState extends State<AddAttendanceDialog> {
                   message: errMsg.toString(),
                   seconds: 1,
                 );
+                Navigator.of(context).pop();
+
               },
             );
           },

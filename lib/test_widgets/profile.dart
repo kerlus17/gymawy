@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
- 
+
 class GymApp extends StatelessWidget {
   const GymApp({super.key});
 
@@ -55,20 +55,17 @@ class MemberDetailsPage extends StatelessWidget {
             return SingleChildScrollView(
               child: Center(
                 child: ConstrainedBox(
-                  constraints: const BoxConstraints(
-                    maxWidth: 1250,
-                  ),
+                  constraints: const BoxConstraints(maxWidth: 1250),
                   child: Padding(
                     padding: const EdgeInsets.all(14),
                     child: Column(
                       children: [
                         const MemberTopHeader(),
                         const SizedBox(height: 12),
-    
+
                         // ------------------------------------------------
                         // PROFILE + CURRENT SUBSCRIPTION
                         // ------------------------------------------------
-    
                         Row(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
@@ -82,9 +79,9 @@ class MemberDetailsPage extends StatelessWidget {
                                 ],
                               ),
                             ),
-    
+
                             const SizedBox(width: 10),
-    
+
                             Expanded(
                               flex: 3,
                               child: CurrentSubscriptionCard(
@@ -95,13 +92,12 @@ class MemberDetailsPage extends StatelessWidget {
                             ),
                           ],
                         ),
-    
+
                         const SizedBox(height: 10),
-    
+
                         // ------------------------------------------------
                         // HISTORY + CALENDAR
                         // ------------------------------------------------
-    
                         Row(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
@@ -109,24 +105,22 @@ class MemberDetailsPage extends StatelessWidget {
                               flex: 7,
                               child: SubscriptionHistory(),
                             ),
-    
+
                             const SizedBox(width: 10),
-    
+
                             Expanded(
                               flex: 3,
                               child: AttendanceCalendar(
                                 onDateSelected: (date) {
-                                  debugPrint(
-                                    'Selected: $date',
-                                  );
+                                  debugPrint('Selected: $date');
                                 },
                               ),
                             ),
                           ],
                         ),
-    
+
                         const SizedBox(height: 10),
-    
+
                         const MemberInfoSection(),
                       ],
                     ),
@@ -148,9 +142,7 @@ class MemberDetailsPage extends StatelessWidget {
           backgroundColor: AppColors.card,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(14),
-            side: const BorderSide(
-              color: AppColors.border,
-            ),
+            side: const BorderSide(color: AppColors.border),
           ),
           child: SizedBox(
             width: 420,
@@ -161,10 +153,7 @@ class MemberDetailsPage extends StatelessWidget {
                 children: [
                   const Row(
                     children: [
-                      Icon(
-                        Icons.autorenew,
-                        color: AppColors.green,
-                      ),
+                      Icon(Icons.autorenew, color: AppColors.green),
                       SizedBox(width: 10),
                       Text(
                         'تجديد الاشتراك',
@@ -178,17 +167,11 @@ class MemberDetailsPage extends StatelessWidget {
 
                   const SizedBox(height: 22),
 
-                  _DialogField(
-                    label: 'مدة الاشتراك',
-                    value: 'شهر',
-                  ),
+                  _DialogField(label: 'مدة الاشتراك', value: 'شهر'),
 
                   const SizedBox(height: 12),
 
-                  _DialogField(
-                    label: 'قيمة الاشتراك',
-                    value: '300 جنيه',
-                  ),
+                  _DialogField(label: 'قيمة الاشتراك', value: '300 جنيه'),
 
                   const SizedBox(height: 22),
 
@@ -241,13 +224,9 @@ class MemberTopHeader extends StatelessWidget {
       decoration: BoxDecoration(
         color: AppColors.card,
         borderRadius: BorderRadius.circular(10),
-        border: Border.all(
-          color: AppColors.border,
-        ),
+        border: Border.all(color: AppColors.border),
       ),
-      padding: const EdgeInsets.symmetric(
-        horizontal: 16,
-      ),
+      padding: const EdgeInsets.symmetric(horizontal: 16),
       child: Row(
         children: [
           Container(
@@ -275,59 +254,34 @@ class MemberTopHeader extends StatelessWidget {
               ),
               Text(
                 'معلومات العضو واشتراكاته',
-                style: TextStyle(
-                  color: AppColors.grey,
-                  fontSize: 9,
-                ),
+                style: TextStyle(color: AppColors.grey, fontSize: 9),
               ),
             ],
           ),
 
           const Spacer(),
 
-          _HeaderDateBox(
-            icon: Icons.calendar_month,
-            text: '2026 / 09 / 15',
-          ),
+          _HeaderDateBox(icon: Icons.calendar_month, text: '2026 / 09 / 15'),
 
           const SizedBox(width: 8),
 
-          const Text(
-            '—',
-            style: TextStyle(
-              color: AppColors.darkGrey,
-            ),
-          ),
+          const Text('—', style: TextStyle(color: AppColors.darkGrey)),
 
           const SizedBox(width: 8),
 
-          _HeaderDateBox(
-            icon: Icons.calendar_month,
-            text: '2026 / 09 / 12',
-          ),
+          _HeaderDateBox(icon: Icons.calendar_month, text: '2026 / 09 / 12'),
 
           const SizedBox(width: 15),
 
-          _HeaderDateBox(
-            icon: Icons.access_time,
-            text: '01:00',
-          ),
+          _HeaderDateBox(icon: Icons.access_time, text: '01:00'),
 
           const SizedBox(width: 6),
 
-          const Text(
-            '—',
-            style: TextStyle(
-              color: AppColors.darkGrey,
-            ),
-          ),
+          const Text('—', style: TextStyle(color: AppColors.darkGrey)),
 
           const SizedBox(width: 6),
 
-          _HeaderDateBox(
-            icon: Icons.access_time,
-            text: '12:00',
-          ),
+          _HeaderDateBox(icon: Icons.access_time, text: '12:00'),
         ],
       ),
     );
@@ -338,28 +292,15 @@ class _HeaderDateBox extends StatelessWidget {
   final IconData icon;
   final String text;
 
-  const _HeaderDateBox({
-    required this.icon,
-    required this.text,
-  });
+  const _HeaderDateBox({required this.icon, required this.text});
 
   @override
   Widget build(BuildContext context) {
     return Row(
       children: [
-        Icon(
-          icon,
-          size: 13,
-          color: AppColors.red,
-        ),
+        Icon(icon, size: 13, color: AppColors.red),
         const SizedBox(width: 5),
-        Text(
-          text,
-          style: const TextStyle(
-            color: AppColors.grey,
-            fontSize: 9,
-          ),
-        ),
+        Text(text, style: const TextStyle(color: AppColors.grey, fontSize: 9)),
       ],
     );
   }
@@ -384,19 +325,12 @@ class MemberProfileCard extends StatelessWidget {
             height: 76,
             decoration: BoxDecoration(
               shape: BoxShape.circle,
-              border: Border.all(
-                color: AppColors.red,
-                width: 2,
-              ),
+              border: Border.all(color: AppColors.red, width: 2),
             ),
             padding: const EdgeInsets.all(4),
             child: const CircleAvatar(
               backgroundColor: Color(0xFF16293A),
-              child: Icon(
-                Icons.person,
-                size: 42,
-                color: Color(0xFF7890A4),
-              ),
+              child: Icon(Icons.person, size: 42, color: Color(0xFF7890A4)),
             ),
           ),
 
@@ -421,19 +355,13 @@ class MemberProfileCard extends StatelessWidget {
 
                     const SizedBox(width: 8),
 
-                    StatusBadge(
-                      text: 'نشط',
-                      color: AppColors.green,
-                    ),
+                    StatusBadge(text: 'نشط', color: AppColors.green),
                   ],
                 ),
 
                 const SizedBox(height: 8),
 
-                _InfoLine(
-                  icon: Icons.badge_outlined,
-                  text: 'ID : 01027229420',
-                ),
+                _InfoLine(icon: Icons.badge_outlined, text: 'ID : 01027229420'),
 
                 const SizedBox(height: 5),
 
@@ -468,18 +396,12 @@ class MemberProfileCard extends StatelessWidget {
 
               const Text(
                 'QR Code',
-                style: TextStyle(
-                  color: AppColors.grey,
-                  fontSize: 8,
-                ),
+                style: TextStyle(color: AppColors.grey, fontSize: 8),
               ),
 
               const Text(
                 '01027229420',
-                style: TextStyle(
-                  color: AppColors.grey,
-                  fontSize: 7,
-                ),
+                style: TextStyle(color: AppColors.grey, fontSize: 7),
               ),
             ],
           ),
@@ -493,28 +415,15 @@ class _InfoLine extends StatelessWidget {
   final IconData icon;
   final String text;
 
-  const _InfoLine({
-    required this.icon,
-    required this.text,
-  });
+  const _InfoLine({required this.icon, required this.text});
 
   @override
   Widget build(BuildContext context) {
     return Row(
       children: [
-        Icon(
-          icon,
-          size: 12,
-          color: AppColors.grey,
-        ),
+        Icon(icon, size: 12, color: AppColors.grey),
         const SizedBox(width: 6),
-        Text(
-          text,
-          style: const TextStyle(
-            fontSize: 9,
-            color: AppColors.grey,
-          ),
-        ),
+        Text(text, style: const TextStyle(fontSize: 9, color: AppColors.grey)),
       ],
     );
   }
@@ -527,10 +436,7 @@ class _InfoLine extends StatelessWidget {
 class CurrentSubscriptionCard extends StatelessWidget {
   final VoidCallback onRenew;
 
-  const CurrentSubscriptionCard({
-    super.key,
-    required this.onRenew,
-  });
+  const CurrentSubscriptionCard({super.key, required this.onRenew});
 
   @override
   Widget build(BuildContext context) {
@@ -552,10 +458,7 @@ class CurrentSubscriptionCard extends StatelessWidget {
 
               const Spacer(),
 
-              StatusBadge(
-                text: 'نشط',
-                color: AppColors.green,
-              ),
+              StatusBadge(text: 'نشط', color: AppColors.green),
             ],
           ),
 
@@ -574,18 +477,12 @@ class CurrentSubscriptionCard extends StatelessWidget {
 
           const Text(
             '2026-05-26',
-            style: TextStyle(
-              color: AppColors.grey,
-              fontSize: 8,
-            ),
+            style: TextStyle(color: AppColors.grey, fontSize: 8),
           ),
 
           const Text(
             '2026-08-26',
-            style: TextStyle(
-              color: AppColors.grey,
-              fontSize: 8,
-            ),
+            style: TextStyle(color: AppColors.grey, fontSize: 8),
           ),
 
           const Spacer(),
@@ -595,16 +492,10 @@ class CurrentSubscriptionCard extends StatelessWidget {
             height: 29,
             child: ElevatedButton.icon(
               onPressed: onRenew,
-              icon: const Icon(
-                Icons.refresh,
-                size: 13,
-              ),
+              icon: const Icon(Icons.refresh, size: 13),
               label: const Text(
                 'تجديد الاشتراك',
-                style: TextStyle(
-                  fontSize: 10,
-                  fontWeight: FontWeight.bold,
-                ),
+                style: TextStyle(fontSize: 10, fontWeight: FontWeight.bold),
               ),
               style: ElevatedButton.styleFrom(
                 backgroundColor: AppColors.red,
@@ -697,27 +588,18 @@ class StatCard extends StatelessWidget {
       decoration: BoxDecoration(
         color: AppColors.card,
         borderRadius: BorderRadius.circular(8),
-        border: Border.all(
-          color: AppColors.border,
-        ),
+        border: Border.all(color: AppColors.border),
       ),
       child: Column(
         children: [
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Icon(
-                icon,
-                size: 12,
-                color: AppColors.grey,
-              ),
+              Icon(icon, size: 12, color: AppColors.grey),
               const SizedBox(width: 5),
               Text(
                 title,
-                style: const TextStyle(
-                  fontSize: 8,
-                  color: AppColors.grey,
-                ),
+                style: const TextStyle(fontSize: 8, color: AppColors.grey),
               ),
             ],
           ),
@@ -740,10 +622,7 @@ class StatCard extends StatelessWidget {
                 const SizedBox(width: 4),
                 Text(
                   suffix,
-                  style: const TextStyle(
-                    fontSize: 8,
-                    color: AppColors.grey,
-                  ),
+                  style: const TextStyle(fontSize: 8, color: AppColors.grey),
                 ),
               ],
             ],
@@ -764,43 +643,16 @@ class SubscriptionHistory extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final subscriptions = [
-      [
-        '#SUB-100',
-        '2026-05-26',
-        '2026-08-26',
-        '3 أشهر',
-        'مستمر',
-      ],
-      [
-        '#SUB-099',
-        '2026-04-10',
-        '2026-05-10',
-        'شهر',
-        'منتهي',
-      ],
-      [
-        '#SUB-098',
-        '2026-03-10',
-        '2026-04-10',
-        'شهر',
-        'منتهي',
-      ],
-      [
-        '#SUB-097',
-        '2026-02-01',
-        '2026-03-01',
-        'شهر',
-        'منتهي',
-      ],
+      ['#SUB-100', '2026-05-26', '2026-08-26', '3 أشهر', 'مستمر'],
+      ['#SUB-099', '2026-04-10', '2026-05-10', 'شهر', 'منتهي'],
+      ['#SUB-098', '2026-03-10', '2026-04-10', 'شهر', 'منتهي'],
+      ['#SUB-097', '2026-02-01', '2026-03-01', 'شهر', 'منتهي'],
     ];
 
     return AppCard(
       child: Column(
         children: [
-          const SectionHeader(
-            icon: Icons.history,
-            title: 'الاشتراكات السابقة',
-          ),
+          const SectionHeader(icon: Icons.history, title: 'الاشتراكات السابقة'),
 
           const SizedBox(height: 10),
 
@@ -813,45 +665,27 @@ class SubscriptionHistory extends StatelessWidget {
             ),
             child: const Row(
               children: [
-                Expanded(
-                  flex: 2,
-                  child: _TableTitle('رقم الاشتراك'),
-                ),
-                Expanded(
-                  flex: 2,
-                  child: _TableTitle('تاريخ البداية'),
-                ),
-                Expanded(
-                  flex: 2,
-                  child: _TableTitle('تاريخ النهاية'),
-                ),
-                Expanded(
-                  child: _TableTitle('المدة'),
-                ),
-                Expanded(
-                  child: _TableTitle('الحالة'),
-                ),
-                SizedBox(
-                  width: 35,
-                  child: _TableTitle(''),
-                ),
+                Expanded(flex: 2, child: _TableTitle('رقم الاشتراك')),
+                Expanded(flex: 2, child: _TableTitle('تاريخ البداية')),
+                Expanded(flex: 2, child: _TableTitle('تاريخ النهاية')),
+                Expanded(child: _TableTitle('المدة')),
+                Expanded(child: _TableTitle('الحالة')),
+                SizedBox(width: 35, child: _TableTitle('')),
               ],
             ),
           ),
 
           const SizedBox(height: 4),
 
-          ...subscriptions.map(
-            (subscription) {
-              return _SubscriptionRow(
-                id: subscription[0],
-                start: subscription[1],
-                end: subscription[2],
-                duration: subscription[3],
-                status: subscription[4],
-              );
-            },
-          ),
+          ...subscriptions.map((subscription) {
+            return _SubscriptionRow(
+              id: subscription[0],
+              start: subscription[1],
+              end: subscription[2],
+              duration: subscription[3],
+              status: subscription[4],
+            );
+          }),
         ],
       ),
     );
@@ -868,10 +702,7 @@ class _TableTitle extends StatelessWidget {
     return Center(
       child: Text(
         text,
-        style: const TextStyle(
-          color: AppColors.grey,
-          fontSize: 8,
-        ),
+        style: const TextStyle(color: AppColors.grey, fontSize: 8),
       ),
     );
   }
@@ -900,9 +731,7 @@ class _SubscriptionRow extends StatelessWidget {
       height: 34,
       decoration: BoxDecoration(
         border: Border(
-          bottom: BorderSide(
-            color: AppColors.border.withOpacity(.7),
-          ),
+          bottom: BorderSide(color: AppColors.border.withOpacity(.7)),
         ),
       ),
       child: Row(
@@ -912,35 +741,22 @@ class _SubscriptionRow extends StatelessWidget {
             child: Center(
               child: Text(
                 id,
-                style: const TextStyle(
-                  color: AppColors.white,
-                  fontSize: 8,
-                ),
+                style: const TextStyle(color: AppColors.white, fontSize: 8),
               ),
             ),
           ),
 
-          Expanded(
-            flex: 2,
-            child: _CellText(start),
-          ),
+          Expanded(flex: 2, child: _CellText(start)),
 
-          Expanded(
-            flex: 2,
-            child: _CellText(end),
-          ),
+          Expanded(flex: 2, child: _CellText(end)),
 
-          Expanded(
-            child: _CellText(duration),
-          ),
+          Expanded(child: _CellText(duration)),
 
           Expanded(
             child: Center(
               child: StatusBadge(
                 text: status,
-                color: active
-                    ? AppColors.green
-                    : AppColors.red,
+                color: active ? AppColors.green : AppColors.red,
               ),
             ),
           ),
@@ -975,10 +791,7 @@ class _CellText extends StatelessWidget {
     return Center(
       child: Text(
         text,
-        style: const TextStyle(
-          color: AppColors.grey,
-          fontSize: 8,
-        ),
+        style: const TextStyle(color: AppColors.grey, fontSize: 8),
       ),
     );
   }
@@ -991,33 +804,20 @@ class _CellText extends StatelessWidget {
 class AttendanceCalendar extends StatefulWidget {
   final Function(String date)? onDateSelected;
 
-  const AttendanceCalendar({
-    super.key,
-    this.onDateSelected,
-  });
+  const AttendanceCalendar({super.key, this.onDateSelected});
 
   @override
-  State<AttendanceCalendar> createState() =>
-      _AttendanceCalendarState();
+  State<AttendanceCalendar> createState() => _AttendanceCalendarState();
 }
 
-class _AttendanceCalendarState
-    extends State<AttendanceCalendar> {
+class _AttendanceCalendarState extends State<AttendanceCalendar> {
   int selectedDay = 7;
 
-  final Set<int> attendanceDays = {
-    7,
-    10,
-    12,
-    26,
-  };
+  final Set<int> attendanceDays = {7, 10, 12, 26};
 
   @override
   Widget build(BuildContext context) {
-    final days = List.generate(
-      31,
-      (index) => index + 1,
-    );
+    final days = List.generate(31, (index) => index + 1);
 
     return AppCard(
       child: Column(
@@ -1081,8 +881,7 @@ class _AttendanceCalendarState
             shrinkWrap: true,
             physics: const NeverScrollableScrollPhysics(),
             itemCount: 35,
-            gridDelegate:
-                const SliverGridDelegateWithFixedCrossAxisCount(
+            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
               crossAxisCount: 7,
               childAspectRatio: 1.2,
             ),
@@ -1114,8 +913,8 @@ class _AttendanceCalendarState
                     color: selected
                         ? AppColors.green
                         : attended
-                            ? AppColors.green.withOpacity(.15)
-                            : Colors.transparent,
+                        ? AppColors.green.withOpacity(.15)
+                        : Colors.transparent,
                     borderRadius: BorderRadius.circular(5),
                   ),
                   child: Center(
@@ -1127,8 +926,8 @@ class _AttendanceCalendarState
                         color: selected
                             ? Colors.black
                             : attended
-                                ? AppColors.green
-                                : AppColors.grey,
+                            ? AppColors.green
+                            : AppColors.grey,
                       ),
                     ),
                   ),
@@ -1142,15 +941,9 @@ class _AttendanceCalendarState
           const Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              _Legend(
-                color: AppColors.green,
-                text: 'حضر',
-              ),
+              _Legend(color: AppColors.green, text: 'حضر'),
               SizedBox(width: 12),
-              _Legend(
-                color: AppColors.red,
-                text: 'غائب',
-              ),
+              _Legend(color: AppColors.red, text: 'غائب'),
             ],
           ),
         ],
@@ -1170,10 +963,7 @@ class _WeekDay extends StatelessWidget {
       child: Center(
         child: Text(
           text,
-          style: const TextStyle(
-            color: AppColors.grey,
-            fontSize: 6,
-          ),
+          style: const TextStyle(color: AppColors.grey, fontSize: 6),
         ),
       ),
     );
@@ -1184,10 +974,7 @@ class _Legend extends StatelessWidget {
   final Color color;
   final String text;
 
-  const _Legend({
-    required this.color,
-    required this.text,
-  });
+  const _Legend({required this.color, required this.text});
 
   @override
   Widget build(BuildContext context) {
@@ -1196,19 +983,10 @@ class _Legend extends StatelessWidget {
         Container(
           width: 6,
           height: 6,
-          decoration: BoxDecoration(
-            color: color,
-            shape: BoxShape.circle,
-          ),
+          decoration: BoxDecoration(color: color, shape: BoxShape.circle),
         ),
         const SizedBox(width: 4),
-        Text(
-          text,
-          style: const TextStyle(
-            color: AppColors.grey,
-            fontSize: 7,
-          ),
-        ),
+        Text(text, style: const TextStyle(color: AppColors.grey, fontSize: 7)),
       ],
     );
   }
@@ -1232,10 +1010,7 @@ class MemberInfoSection extends StatelessWidget {
             icon: Icons.notes,
             child: const Text(
               'العضو ملتزم بالحضور ولا توجد ملاحظات حالياً.',
-              style: TextStyle(
-                color: AppColors.grey,
-                fontSize: 9,
-              ),
+              style: TextStyle(color: AppColors.grey, fontSize: 9),
             ),
           ),
         ),
@@ -1255,17 +1030,13 @@ class MemberInfoSection extends StatelessWidget {
                     borderRadius: BorderRadius.circular(7),
                     color: AppColors.card2,
                   ),
-                  child: const Icon(
-                    Icons.person,
-                    color: AppColors.grey,
-                  ),
+                  child: const Icon(Icons.person, color: AppColors.grey),
                 ),
 
                 const SizedBox(width: 10),
 
                 Column(
-                  crossAxisAlignment:
-                      CrossAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     const Text(
                       'أحمد محمد علي',
@@ -1297,13 +1068,9 @@ class MemberInfoSection extends StatelessWidget {
             title: 'بيانات التواصل',
             icon: Icons.contact_phone_outlined,
             child: Column(
-              crossAxisAlignment:
-                  CrossAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: const [
-                _ContactRow(
-                  icon: Icons.phone,
-                  text: '01027229420',
-                ),
+                _ContactRow(icon: Icons.phone, text: '01027229420'),
                 SizedBox(height: 8),
                 _ContactRow(
                   icon: Icons.location_on_outlined,
@@ -1338,11 +1105,7 @@ class MemberInfoCard extends StatelessWidget {
         children: [
           Row(
             children: [
-              Icon(
-                icon,
-                size: 13,
-                color: AppColors.grey,
-              ),
+              Icon(icon, size: 13, color: AppColors.grey),
               const SizedBox(width: 6),
               Text(
                 title,
@@ -1368,28 +1131,15 @@ class _ContactRow extends StatelessWidget {
   final IconData icon;
   final String text;
 
-  const _ContactRow({
-    required this.icon,
-    required this.text,
-  });
+  const _ContactRow({required this.icon, required this.text});
 
   @override
   Widget build(BuildContext context) {
     return Row(
       children: [
-        Icon(
-          icon,
-          size: 11,
-          color: AppColors.grey,
-        ),
+        Icon(icon, size: 11, color: AppColors.grey),
         const SizedBox(width: 7),
-        Text(
-          text,
-          style: const TextStyle(
-            color: AppColors.grey,
-            fontSize: 8,
-          ),
-        ),
+        Text(text, style: const TextStyle(color: AppColors.grey, fontSize: 8)),
       ],
     );
   }
@@ -1403,21 +1153,13 @@ class SectionHeader extends StatelessWidget {
   final IconData icon;
   final String title;
 
-  const SectionHeader({
-    super.key,
-    required this.icon,
-    required this.title,
-  });
+  const SectionHeader({super.key, required this.icon, required this.title});
 
   @override
   Widget build(BuildContext context) {
     return Row(
       children: [
-        Icon(
-          icon,
-          color: AppColors.red,
-          size: 14,
-        ),
+        Icon(icon, color: AppColors.red, size: 14),
 
         const SizedBox(width: 6),
 
@@ -1442,25 +1184,16 @@ class StatusBadge extends StatelessWidget {
   final String text;
   final Color color;
 
-  const StatusBadge({
-    super.key,
-    required this.text,
-    required this.color,
-  });
+  const StatusBadge({super.key, required this.text, required this.color});
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.symmetric(
-        horizontal: 8,
-        vertical: 3,
-      ),
+      padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 3),
       decoration: BoxDecoration(
         color: color.withOpacity(.10),
         borderRadius: BorderRadius.circular(20),
-        border: Border.all(
-          color: color.withOpacity(.35),
-        ),
+        border: Border.all(color: color.withOpacity(.35)),
       ),
       child: Text(
         text,
@@ -1482,11 +1215,7 @@ class AppCard extends StatelessWidget {
   final Widget child;
   final double? height;
 
-  const AppCard({
-    super.key,
-    required this.child,
-    this.height,
-  });
+  const AppCard({super.key, required this.child, this.height});
 
   @override
   Widget build(BuildContext context) {
@@ -1497,9 +1226,7 @@ class AppCard extends StatelessWidget {
       decoration: BoxDecoration(
         color: AppColors.card,
         borderRadius: BorderRadius.circular(9),
-        border: Border.all(
-          color: AppColors.border,
-        ),
+        border: Border.all(color: AppColors.border),
       ),
       child: child,
     );
@@ -1514,41 +1241,28 @@ class _DialogField extends StatelessWidget {
   final String label;
   final String value;
 
-  const _DialogField({
-    required this.label,
-    required this.value,
-  });
+  const _DialogField({required this.label, required this.value});
 
   @override
   Widget build(BuildContext context) {
     return Container(
       height: 48,
-      padding: const EdgeInsets.symmetric(
-        horizontal: 12,
-      ),
+      padding: const EdgeInsets.symmetric(horizontal: 12),
       decoration: BoxDecoration(
         color: AppColors.card2,
         borderRadius: BorderRadius.circular(7),
-        border: Border.all(
-          color: AppColors.border,
-        ),
+        border: Border.all(color: AppColors.border),
       ),
       child: Row(
         children: [
           Text(
             label,
-            style: const TextStyle(
-              color: AppColors.grey,
-              fontSize: 10,
-            ),
+            style: const TextStyle(color: AppColors.grey, fontSize: 10),
           ),
           const Spacer(),
           Text(
             value,
-            style: const TextStyle(
-              color: AppColors.white,
-              fontSize: 10,
-            ),
+            style: const TextStyle(color: AppColors.white, fontSize: 10),
           ),
         ],
       ),

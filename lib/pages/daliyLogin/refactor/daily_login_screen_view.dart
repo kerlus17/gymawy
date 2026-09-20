@@ -20,9 +20,14 @@ class DailyLoginScreenView extends StatefulWidget {
 }
 
 class _DailyLoginScreenViewState extends State<DailyLoginScreenView> {
-  DateTime selectedDate = DateTime(2026, 5, 26);
+  late DateTime selectedDate;
   final DateTime firstDate = DateTime(2026, 1, 1);
   final DateTime lastDate = DateTime(2026, 12, 31);
+
+  void initState() {
+    super.initState();
+    selectedDate = DateTime.now();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -143,6 +148,11 @@ class _DailyLoginScreenViewState extends State<DailyLoginScreenView> {
                         setState(() {
                           selectedDate = date;
                         });
+                        context.read<AttendsBloc>().add(
+                          AttendsEvent.getAttendsOfDay(
+                            date: DateTime(date.year, date.month, date.day),
+                          ),
+                        );
                       },
 
                       headerOptions: const HeaderOptions(
@@ -159,9 +169,7 @@ class _DailyLoginScreenViewState extends State<DailyLoginScreenView> {
                             isDisabled,
                             isToday,
                             onTap,
-                          )
-
-                          {
+                          ) {
                             return InkWell(
                               onTap: onTap,
                               child: Container(
@@ -226,51 +234,45 @@ class _DailyLoginScreenViewState extends State<DailyLoginScreenView> {
                     Expanded(
                       child: BlocBuilder<AttendsBloc, AttendsState>(
                         builder: (context, state) {
-                          
-                          
-                          if (state is LoadingState) {
-                            // استبدل AttendsLoading باسم حالة التحميل عندك
-                            return const Center(
-                              child: CircularProgressIndicator(),
-                            );
-                          }
+                          return state.maybeWhen(
+                            orElse: () {
+                              return Center(child: Text("خطا غير معروف"));
+                            },
+                            successGetAttendanceWithDetails: (attends) {
+                              final attendsList = attends;
 
-                          if (state is ErrorState) {
-                            return Center(child: Text(state.errMsg));
-                          }
-
-                          if (state is successGetAttendanceWithDetailsState) {
-                           
-                            final attendsList = state.attendsWithDetails;
-                            
-
-                            if (attendsList.isEmpty) {
-                              return const Center(
-                                child: Text('لا يوجد تسجيل حضور '),
-                              );
-                            }
-
-                            return ListView.builder(
-                              itemCount: attendsList.length,
-                              itemBuilder: (context, index) {
-                                
-                                final item = attendsList[index];
-                             
-
-                                return AttendanceCard(
-                                  name: item.member!.name,
-                                  id: item.attendance.memberId,
-                                  subscriptionId: item.subscription!.planId
-                                      .toString(),
-                                  time: DateFormat(
-                                    'hh:mm a',
-                                  ).format(item.attendance.checkInAt),
+                              if (attendsList.isEmpty) {
+                                return const Center(
+                                  child: Text('لا يوجد تسجيل حضور '),
                                 );
-                              },
-                            );
-                          }
+                              }
 
-                          return const SizedBox();
+                              return ListView.builder(
+                                itemCount: attendsList.length,
+                                itemBuilder: (context, index) {
+                                  final item = attendsList[index];
+
+                                  return AttendanceCard(
+                                    name: item.member!.name,
+                                    id: item.attendance.memberId,
+                                    subscriptionId: item.subscription!.planId
+                                        .toString(),
+                                    time: DateFormat(
+                                      'hh:mm a',
+                                    ).format(item.attendance.checkInAt),
+                                  );
+                                },
+                              );
+                            },
+                            loading: () {
+                              return const Center(
+                                child: CircularProgressIndicator(),
+                              );
+                            },
+                            error: (errMsg) {
+                              return Center(child: Text(errMsg));
+                            },
+                          );
                         },
                       ),
                     ),

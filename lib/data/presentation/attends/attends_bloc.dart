@@ -26,7 +26,6 @@ class AttendsBloc extends Bloc<AttendsEvent, AttendsState> {
   );
   final Box<GymMember> _box3 = Hive.box<GymMember>(HiveConstants.memdersBox);
 
-
   FutureOr<void> getAllAtteds(
     GetAllAttedsEvent event,
     Emitter<AttendsState> emit,
@@ -43,15 +42,12 @@ class AttendsBloc extends Bloc<AttendsEvent, AttendsState> {
       emit(AttendsState.error(errMsg: e.toString()));
     }
   }
-
-
-
-  FutureOr<void> addAttends(
+FutureOr<void> addAttends(
     AddAttendanceEvent event,
     Emitter<AttendsState> emit,
   ) async {
     try {
-      emit(AttendsState.loading());
+      emit(const AttendsState.loading());
       final member = _box3.values.cast<GymMember?>().firstWhere(
         (member) => member?.id == event.memberId,
         orElse: () => null,
@@ -65,7 +61,7 @@ class AttendsBloc extends Bloc<AttendsEvent, AttendsState> {
             .toList();
 
         if (memberSubscriptions.isEmpty) {
-          emit(AttendsState.error(errMsg: "لا يوجد اشتراك مسجل لهذا العضو"));
+          emit(const AttendsState.error(errMsg: "لا يوجد اشتراك مسجل لهذا العضو"));
           return;
         }
 
@@ -77,11 +73,24 @@ class AttendsBloc extends Bloc<AttendsEvent, AttendsState> {
           subscriptionId: subscriptionId,
           checkInAt: DateTime.now(),
         );
-        _box.add(attendace);
-        final listAttendance = _box.values.toList();
-        emit(AttendsState.success(attends: listAttendance));
+
+        await _box.add(attendace);
+
+        final now = DateTime.now();
+        final todaysList = _box.values.where((attendance) {
+          final checkIn = attendance.checkInAt;
+          return checkIn.year == now.year &&
+              checkIn.month == now.month &&
+              checkIn.day == now.day;
+        }).toList();
+
+        emit(
+          AttendsState.successGetAttendanceWithDetails(
+            attendsWithDetails: _attachDetails(todaysList),
+          ),
+        );
       } else {
-        emit(AttendsState.error(errMsg: "there isnot this string id"));
+        emit(const AttendsState.error(errMsg: "there isnot this string id"));
       }
     } catch (e) {
       emit(AttendsState.error(errMsg: e.toString()));
@@ -93,11 +102,25 @@ class AttendsBloc extends Bloc<AttendsEvent, AttendsState> {
     Emitter<AttendsState> emit,
   ) async {
     try {
-      emit(AttendsState.loading());
-      final theList = _box.values
-          .where((attendance) => attendance.checkInAt == event.date)
-          .toList();
-      emit(AttendsState.success(attends: theList));
+      emit(const AttendsState.loading());
+
+      final targetDate = event.date;
+
+      final theList = _box.values.where((attendance) {
+        final checkIn = attendance.checkInAt;
+
+        return checkIn.year == targetDate.year &&
+            checkIn.month == targetDate.month &&
+            checkIn.day == targetDate.day;
+      }).toList();
+
+      final listWithDetails = _attachDetails(theList);
+
+      emit(
+        AttendsState.successGetAttendanceWithDetails(
+          attendsWithDetails: listWithDetails,
+        ),
+      );
     } catch (e) {
       emit(AttendsState.error(errMsg: e.toString()));
     }
@@ -138,3 +161,6 @@ class AttendsBloc extends Bloc<AttendsEvent, AttendsState> {
     }).toList();
   }
 }
+
+
+

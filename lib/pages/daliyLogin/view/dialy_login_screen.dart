@@ -18,7 +18,7 @@ class _DialyLoginScreenState extends State<DialyLoginScreen> {
     return MultiBlocProvider(
       providers: [
         BlocProvider<AttendsBloc>(
-          create: (context) => AttendsBloc()..add(AttendsEvent.getAllAtteds()),
+          create: (context) => AttendsBloc()..add(AttendsEvent.getAttendsOfDay(date: DateTime.now())),
         ),
       ],
       child: DailyLoginScreenView(),
