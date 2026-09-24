@@ -46,4 +46,4 @@ class Subscription {
   }
 }
 
-enum SubscriptionPlan { monthly, threeMonths, sixMonths, yearly }
+enum SubscriptionPlan { oneMonths, threeMonths, sixMonths, yearly }

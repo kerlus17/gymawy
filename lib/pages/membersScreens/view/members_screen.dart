@@ -7,6 +7,8 @@ import 'package:systeam_gym/data/models/subscription/subscription.dart';
 import 'package:systeam_gym/data/presentation/member/member_bloc.dart';
 import 'package:systeam_gym/data/presentation/subscription/subscription_bloc.dart';
 import 'package:systeam_gym/pages/dialog_add/view/add_user_dialog.dart';
+import 'package:systeam_gym/pages/membersScreens/MembersFilterCubit/MembersFilterCubit%20.dart';
+import 'package:systeam_gym/pages/membersScreens/MembersFilterCubit/MembersFilterState%20.dart';
 import 'package:systeam_gym/pages/membersScreens/data/member_data.dart';
 import 'package:systeam_gym/pages/membersScreens/widget/members_table.dart';
 import 'package:systeam_gym/shared/btns/custom_action_btn%20.dart';
@@ -31,24 +33,19 @@ class MembersScreen extends StatelessWidget {
               SubscriptionBloc()
                 ..add(const SubscriptionEvent.getAllSubscription()),
         ),
+        BlocProvider(create: (context) => MembersFilterCubit()),
       ],
-      child: const MembersView(),
+      child: MembersView(),
     );
   }
 }
 
-class MembersView extends StatefulWidget {
-  const MembersView({super.key});
+class MembersView extends StatelessWidget {
+  MembersView({super.key});
 
-  @override
-  State<MembersView> createState() => _MembersViewState();
-}
-
-class _MembersViewState extends State<MembersView> {
   PlutoGridStateManager? stateManager;
 
-  String selectedFilter = 'الكل';
-
+  // String selectedFilter = 'الكل';
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -103,124 +100,176 @@ class _MembersViewState extends State<MembersView> {
             customContaner(
               child: Row(
                 children: [
-                  Expanded(child: CustomTaxtfield()),
-                  const SizedBox(width: 20),
-                  customContaner(
-                    backcolor: ColorsMenege.back_color2,
-                    isPading: 8,
-                    child: Row(
-                      children: [
-                        CustomActionBtn(
-                          title: 'الكل',
-                          selected: selectedFilter == 'الكل',
-                          onTap: () => setState(() => selectedFilter = 'الكل'),
-                        ),
-                        CustomActionBtn(
-                          title: 'نشط',
-                          selected: selectedFilter == 'نشط',
-                          onTap: () => setState(() => selectedFilter = 'نشط'),
-                        ),
-                        CustomActionBtn(
-                          title: 'غير نشط',
-                          selected: selectedFilter == 'غير نشط',
-                          onTap: () =>
-                              setState(() => selectedFilter = 'غير نشط'),
-                        ),
-                      ],
+                  Expanded(
+                    child: CustomTaxtfield(
+                      onchanged: (value) {
+                        context.read<MembersFilterCubit>().search(value);
+                      },
                     ),
+                  ),
+                  const SizedBox(width: 20),
+
+                  BlocBuilder<MembersFilterCubit, MembersFilterState>(
+                    builder: (context, filterState) {
+                      return customContaner(
+                        backcolor: ColorsMenege.back_color2,
+                        isPading: 8,
+                        child: Row(
+                          children: [
+                            CustomActionBtn(
+                              title: 'الكل',
+                              selected: filterState.filter == MemberFilter.all,
+                              onTap: () {
+                                context.read<MembersFilterCubit>().changeFilter(
+                                  MemberFilter.all,
+                                );
+                              },
+                            ),
+                            CustomActionBtn(
+                              title: 'نشط',
+                              selected:
+                                  filterState.filter == MemberFilter.active,
+                              onTap: () {
+                                context.read<MembersFilterCubit>().changeFilter(
+                                  MemberFilter.active,
+                                );
+                              },
+                            ),
+                            CustomActionBtn(
+                              title: 'غير نشط',
+                              selected:
+                                  filterState.filter == MemberFilter.notActive,
+                              onTap: () {
+                                context.read<MembersFilterCubit>().changeFilter(
+                                  MemberFilter.notActive,
+                                );
+                              },
+                            ),
+                          ],
+                        ),
+                      );
+                    },
                   ),
                 ],
               ),
             ),
             const SizedBox(height: 28),
             Expanded(
-              child: BlocBuilder<MemberBloc, MemberState>(
-                builder: (context, memberState) {
-                  return BlocBuilder<SubscriptionBloc, SubscriptionState>(
-                    builder: (context, subState) {
-                      return memberState.when(
-                        initial: () =>
-                            const Center(child: CircularProgressIndicator()),
-                        loading: () =>
-                            const Center(child: CircularProgressIndicator()),
-                        error: (message) => Center(
-                          child: Text(
-                            message,
-                            style: const TextStyle(color: Colors.white),
-                          ),
-                        ),
-                        success: (members) {
-                          final List<PlutoRow> allRows = [];
-
-                          final List<GymMember> membersList = members;
-                          final List<Subscription> allSubscriptions = subState
-                              .maybeWhen(
-                                success: (subscriptions) => subscriptions,
-                                orElse: () => [],
-                              );
-
-                          for (final member in members) {
-                            final memberSubs = allSubscriptions
-                                .where((sub) => sub.memberId == member.id)
-                                .toList();
-
-                            Subscription? lastSub;
-                            if (memberSubs.isNotEmpty) {
-                              memberSubs.sort(
-                                (a, b) => b.startDate.compareTo(a.startDate),
-                              );
-                              lastSub = memberSubs.first;
-                            }
-
-                            final bool isActive =
-                                lastSub?.isActiveAt(DateTime.now()) ?? false;
-                            final String status = isActive ? 'نشط' : 'غير نشط';
-
-                            if (selectedFilter == 'نشط' && !isActive) continue;
-                            if (selectedFilter == 'غير نشط' && isActive)
-                              continue;
-
-                            final genderText = member.gender == Gender.female
-                                ? 'أنثى'
-                                : 'ذكر';
-                            final String pack = switch (lastSub?.planId) {
-                              SubscriptionPlan.monthly => 'شهري',
-                              SubscriptionPlan.threeMonths => '3 أشهر',
-                              SubscriptionPlan.sixMonths => '6 أشهر',
-                              SubscriptionPlan.yearly => 'سنوي',
-                              _ => 'غير مشترك',
-                            };
-
-                            final startDate = lastSub != null
-                                ? "${lastSub.startDate.year}-${lastSub.startDate.month.toString().padLeft(2, '0')}-${lastSub.startDate.day.toString().padLeft(2, '0')}"
-                                : '-';
-                            final endDate = lastSub != null
-                                ? "${lastSub.endDate.year}-${lastSub.endDate.month.toString().padLeft(2, '0')}-${lastSub.endDate.day.toString().padLeft(2, '0')}"
-                                : '-';
-
-                            allRows.add(
-                              PlutoRow(
-                                cells: {
-                                  'name': PlutoCell(value: member.name),
-                                  'package': PlutoCell(value: pack),
-                                  'status': PlutoCell(value: status),
-                                  'phone': PlutoCell(value: member.phone),
-                                  'gender': PlutoCell(value: genderText),
-                                  'startDate': PlutoCell(value: startDate),
-                                  'endDate': PlutoCell(value: endDate),
-                                  'actions': PlutoCell(value: ''),
-                                  'id': PlutoCell(value: member.id),
-                                },
-                              ),
-                            );
-                          }
-
-                          return MembersTable(
-                            key: ValueKey(
-                              '${selectedFilter}_${allRows.length}',
+              child: BlocBuilder<MembersFilterCubit, MembersFilterState>(
+                builder: (context, filterState) {
+                  return BlocBuilder<MemberBloc, MemberState>(
+                    builder: (context, memberState) {
+                      return BlocBuilder<SubscriptionBloc, SubscriptionState>(
+                        builder: (context, subState) {
+                          return memberState.when(
+                            initial: () => const Center(
+                              child: CircularProgressIndicator(),
                             ),
-                            columns: MemberData.columns,
-                            rows: allRows,
+                            loading: () => const Center(
+                              child: CircularProgressIndicator(),
+                            ),
+                            error: (message) => Center(
+                              child: Text(
+                                message,
+                                style: const TextStyle(color: Colors.white),
+                              ),
+                            ),
+                            success: (members) {
+                              final List<PlutoRow> allRows = [];
+
+                              final List<GymMember> membersList = members;
+                              final List<Subscription> allSubscriptions =
+                                  subState.maybeWhen(
+                                    success: (subscriptions) => subscriptions,
+                                    orElse: () => [],
+                                  );
+
+                              for (final member in members) {
+                                final memberSubs = allSubscriptions
+                                    .where((sub) => sub.memberId == member.id)
+                                    .toList();
+
+                                Subscription? lastSub;
+                                if (memberSubs.isNotEmpty) {
+                                  memberSubs.sort(
+                                    (a, b) =>
+                                        b.startDate.compareTo(a.startDate),
+                                  );
+                                  lastSub = memberSubs.first;
+                                }
+
+                                final bool isActive =
+                                    lastSub?.isActiveAt(DateTime.now()) ??
+                                    false;
+                                final String status = isActive
+                                    ? 'نشط'
+                                    : 'غير نشط';
+
+                                if (filterState.filter == MemberFilter.active &&
+                                    !isActive)
+                                  continue;
+                                if (filterState.filter ==
+                                        MemberFilter.notActive &&
+                                    isActive)
+                                  continue;
+
+                                final genderText =
+                                    member.gender == Gender.female
+                                    ? 'أنثى'
+                                    : 'ذكر';
+                                final String pack = switch (lastSub?.planId) {
+                                  SubscriptionPlan.oneMonths => 'شهري',
+                                  SubscriptionPlan.threeMonths => '3 أشهر',
+                                  SubscriptionPlan.sixMonths => '6 أشهر',
+                                  SubscriptionPlan.yearly => 'سنوي',
+                                  _ => 'غير مشترك',
+                                };
+
+                                final startDate = lastSub != null
+                                    ? "${lastSub.startDate.year}-${lastSub.startDate.month.toString().padLeft(2, '0')}-${lastSub.startDate.day.toString().padLeft(2, '0')}"
+                                    : '-';
+                                final endDate = lastSub != null
+                                    ? "${lastSub.endDate.year}-${lastSub.endDate.month.toString().padLeft(2, '0')}-${lastSub.endDate.day.toString().padLeft(2, '0')}"
+                                    : '-';
+
+                                final searchQuery = filterState.searchQuery
+                                    .trim()
+                                    .toLowerCase();
+
+                                if (searchQuery.isNotEmpty) {
+                                  final name = member.name.toLowerCase();
+                                  final phone = member.id.toLowerCase();
+
+                                  if (!name.contains(searchQuery) &&
+                                      !phone.contains(searchQuery)) {
+                                    continue;
+                                  }
+                                }
+                                allRows.add(
+                                  PlutoRow(
+                                    cells: {
+                                      'name': PlutoCell(value: member.name),
+                                      'package': PlutoCell(value: pack),
+                                      'status': PlutoCell(value: status),
+                                      'phone': PlutoCell(value: member.phone),
+                                      'gender': PlutoCell(value: genderText),
+                                      'startDate': PlutoCell(value: startDate),
+                                      'endDate': PlutoCell(value: endDate),
+                                      'actions': PlutoCell(value: ''),
+                                      'id': PlutoCell(value: member.id),
+                                    },
+                                  ),
+                                );
+                              }
+
+                              return MembersTable(
+                                key: ValueKey(
+                                  '${filterState.filter}_${allRows.length}',
+                                ),
+                                columns: MemberData.columns(context),
+                                rows: allRows,
+                              );
+                            },
                           );
                         },
                       );

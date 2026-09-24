@@ -2,10 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:pluto_grid/pluto_grid.dart';
 import 'package:systeam_gym/shared/btns/custom_btn_icon.dart';
 import 'package:systeam_gym/shared/taxt/custom_active_taxt.dart';
+import 'package:systeam_gym/pages/profile_member/view/profile_member.dart';
 
 class MemberData {
-  static List<PlutoColumn> columns = [
-    PlutoColumn(
+  static List<PlutoColumn> columns (BuildContext context){  
+   return [ PlutoColumn(
       title: 'الاسم الكامل\nللمشترك',
       field: 'name',
       type: PlutoColumnType.text(),
@@ -35,7 +36,7 @@ class MemberData {
       textAlign: PlutoColumnTextAlign.center,
       titleTextAlign: PlutoColumnTextAlign.center,
     ),
-     PlutoColumn(
+    PlutoColumn(
       title: 'id',
       field: 'id',
       type: PlutoColumnType.text(),
@@ -106,7 +107,13 @@ class MemberData {
               icon: Icons.edit_outlined,
               color: const Color(0xFF202C3D),
               onTap: () {
-                //  _editMember(rendererContext.row);
+                print('fffffffffffffffffffffffffffffffffffffffffffffff');
+                Navigator.push(
+                context,
+                  MaterialPageRoute(
+                    builder: (context) => const ProfileMember(),
+                  ),
+                );
               },
             ),
 
@@ -124,11 +131,12 @@ class MemberData {
         );
       },
     ),
-  ];
+  ];}
   static List<PlutoRow> rows = [
     PlutoRow(
       cells: {
         'name': PlutoCell(value: 'احمد'),
+        'id': PlutoCell(value: 'احمد'),
         'phone': PlutoCell(value: '01022293420'),
         'gender': PlutoCell(value: 'ذكر'),
         'package': PlutoCell(value: 'اشتراك شهري عادي'),
@@ -142,6 +150,7 @@ class MemberData {
     PlutoRow(
       cells: {
         'name': PlutoCell(value: 'انس'),
+        'id': PlutoCell(value: 'احمد'),
         'phone': PlutoCell(value: '01000000000'),
         'gender': PlutoCell(value: 'ذكر'),
         'package': PlutoCell(value: 'اشتراك لمدة 3 شهور'),
@@ -155,6 +164,7 @@ class MemberData {
     PlutoRow(
       cells: {
         'name': PlutoCell(value: 'محمد'),
+        'id': PlutoCell(value: 'احمد'),
         'phone': PlutoCell(value: '01123456789'),
         'gender': PlutoCell(value: 'ذكر'),
         'package': PlutoCell(value: 'اشتراك شهري عادي'),
@@ -168,6 +178,7 @@ class MemberData {
     PlutoRow(
       cells: {
         'name': PlutoCell(value: 'مريم'),
+        'id': PlutoCell(value: 'احمد'),
         'phone': PlutoCell(value: '01234567890'),
         'gender': PlutoCell(value: 'أنثى'),
         'package': PlutoCell(value: 'اشتراك لمدة 3 شهور'),

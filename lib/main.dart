@@ -38,9 +38,10 @@ class MyApp extends StatelessWidget {
       designSize: const Size(1440, 900), // حسب تصميمك (Desktop/Tablet)
       minTextAdapt: true,
       builder: (context, child) {
-        return const MaterialApp(
+        return MaterialApp(
+          // showPerformanceOverlay: true,
           debugShowCheckedModeBanner: false,
-          home: mainSidebar(),
+          home: MainSidebar(),
         );
       },
     );

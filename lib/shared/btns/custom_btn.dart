@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:systeam_gym/core/constants/app_colors.dart';
 
 class CustomBtn extends StatelessWidget {
   const CustomBtn({
@@ -8,7 +9,7 @@ class CustomBtn extends StatelessWidget {
     this.onTap, // أصبحت اختيارية الان
     this.icon,
     this.isIcon = false,
-    this.isLoading = false,
+    this.isLoading = false, this.hight,
   });
 
   final String title;
@@ -17,18 +18,20 @@ class CustomBtn extends StatelessWidget {
   final VoidCallback? onTap; // Nullable
   final bool isIcon;
   final bool isLoading;
-
+  final double? hight;
+   
   @override
   Widget build(BuildContext context) {
     return Material(
       color: backgroundColor,
       borderRadius: BorderRadius.circular(14),
       child: InkWell(
+        hoverColor: ColorsMenege.hover_gray,
         // تعطيل الضغط أثناء التحميل أو إذا لم يتم تمرير onTap
         onTap: isLoading ? null : onTap,
         borderRadius: BorderRadius.circular(14),
         child: Container(
-          padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 15),
+          padding: EdgeInsets.symmetric(horizontal: 20, vertical:hight ?? 15),
           child: Row(
             mainAxisSize: MainAxisSize.min,
             mainAxisAlignment: MainAxisAlignment.center,
