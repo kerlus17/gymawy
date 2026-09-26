@@ -1,14 +1,32 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:pluto_grid/pluto_grid.dart';
+import 'package:systeam_gym/data/models/subscription/subscription.dart';
+import 'package:systeam_gym/data/presentation/subscription/subscription_bloc.dart';
+import 'package:systeam_gym/pages/profile_member/widget/part/pay_money_dialog.dart';
 import 'package:systeam_gym/shared/btns/custom_btn_icon.dart';
 import 'package:systeam_gym/shared/taxt/custom_active_taxt.dart';
 
-class MemberData2 {
-  static List<PlutoColumn> columns = [
-    // رقم الاشتراك
+class MemberData2 extends StatelessWidget {
+  final String memberID;
+
+  const MemberData2({super.key, required this.memberID});
+
+  List<PlutoColumn> _getColumns(BuildContext context) => [
     PlutoColumn(
-      title: 'رقم الاشتراك',
-      field: 'subscriptionId',
+      title: "رقم الاشتراك",
+      field: 'idSub',
+      type: PlutoColumnType.text(),
+      width: 150,
+      minWidth: 130,
+      textAlign: PlutoColumnTextAlign.center,
+      titleTextAlign: PlutoColumnTextAlign.center,
+      hide: true,
+      readOnly: true,
+    ),
+    PlutoColumn(
+      title: "حاله الدفع",
+      field: 'moneyPaid',
       type: PlutoColumnType.text(),
       width: 150,
       minWidth: 130,
@@ -16,8 +34,26 @@ class MemberData2 {
       titleTextAlign: PlutoColumnTextAlign.center,
       readOnly: true,
     ),
-
-    // تاريخ بداية الاشتراك
+    PlutoColumn(
+      title: "السعر",
+      field: 'money',
+      type: PlutoColumnType.text(),
+      width: 150,
+      minWidth: 130,
+      textAlign: PlutoColumnTextAlign.center,
+      titleTextAlign: PlutoColumnTextAlign.center,
+      readOnly: true,
+    ),
+    PlutoColumn(
+      title: 'عدد مرات الحضور',
+      field: 'attendace',
+      type: PlutoColumnType.text(),
+      width: 150,
+      minWidth: 130,
+      textAlign: PlutoColumnTextAlign.center,
+      titleTextAlign: PlutoColumnTextAlign.center,
+      readOnly: true,
+    ),
     PlutoColumn(
       title: 'بدء الاشتراك',
       field: 'startDate',
@@ -28,8 +64,6 @@ class MemberData2 {
       titleTextAlign: PlutoColumnTextAlign.center,
       readOnly: true,
     ),
-
-    // تاريخ نهاية الاشتراك
     PlutoColumn(
       title: 'نهاية الاشتراك',
       field: 'endDate',
@@ -40,8 +74,6 @@ class MemberData2 {
       titleTextAlign: PlutoColumnTextAlign.center,
       readOnly: true,
     ),
-
-    // مدة الاشتراك
     PlutoColumn(
       title: 'مدة الاشتراك',
       field: 'duration',
@@ -52,8 +84,6 @@ class MemberData2 {
       titleTextAlign: PlutoColumnTextAlign.center,
       readOnly: true,
     ),
-
-    // الحالة
     PlutoColumn(
       title: 'الحالة',
       field: 'status',
@@ -63,21 +93,11 @@ class MemberData2 {
       textAlign: PlutoColumnTextAlign.center,
       titleTextAlign: PlutoColumnTextAlign.center,
       readOnly: true,
-
       renderer: (rendererContext) {
-        final status = rendererContext.cell.value.toString();
-
-        return Center(
-          child: CustomActiveTaxt(
-            text: status,
-            // لو الـ CustomActiveTaxt عندك بياخد
-            // isActive أو أي parameter مختلف عدله هنا
-          ),
-        );
+        final status = rendererContext.cell.value;
+        return Center(child: CustomActiveTaxt(status: status));
       },
     ),
-
-    // الأكشن
     PlutoColumn(
       title: 'الإجراءات',
       field: 'actions',
@@ -89,55 +109,94 @@ class MemberData2 {
       enableDropToResize: false,
       textAlign: PlutoColumnTextAlign.center,
       titleTextAlign: PlutoColumnTextAlign.center,
+      renderer: (rendererContext) {
+        return CustomBtnIcon(
+          icon: Icons.edit_outlined,
+          color: const Color(0xFF202C3D),
+          onTap: () async {
+            final idSub = rendererContext.row.cells['idSub']?.value ?? memberID;
 
-      // renderer: (rendererContext) {
-      //   return Center(
-      //     child: CustomBtnIcon(
-      //       icon: Icons.arrow_forward_ios_rounded,
-      //       color: const Color(0xFF202C3D),
-      //       iconColor: Colors.white,
-      //       onTap: () {
-      //         // هنا تقدر تفتح تفاصيل الاشتراك
-      //         // _showSubscriptionDetails(rendererContext.row);
-      //       },
-      //     ),
-      //   );
-      // },
-    ),
-  ];
+            final subscriptionBloc = context.read<SubscriptionBloc>();
 
-  static List<PlutoRow> rows = [
-    PlutoRow(
-      cells: {
-        'subscriptionId': PlutoCell(value: '#SUB-001'),
-        'startDate': PlutoCell(value: '2026-05-26'),
-        'endDate': PlutoCell(value: '2026-08-26'),
-        'duration': PlutoCell(value: '3 شهور'),
-        'status': PlutoCell(value: 'منتهى'),
-        'actions': PlutoCell(value: ''),
-      },
-    ),
-
-    PlutoRow(
-      cells: {
-        'subscriptionId': PlutoCell(value: '#SUB-000'),
-        'startDate': PlutoCell(value: '2026-03-10'),
-        'endDate': PlutoCell(value: '2026-04-10'),
-        'duration': PlutoCell(value: 'شهر'),
-        'status': PlutoCell(value: 'منتهى'),
-        'actions': PlutoCell(value: ''),
-      },
-    ),
-
-    PlutoRow(
-      cells: {
-        'subscriptionId': PlutoCell(value: '#SUB-999'),
-        'startDate': PlutoCell(value: '2025-12-01'),
-        'endDate': PlutoCell(value: '2026-02-01'),
-        'duration': PlutoCell(value: '3 شهور'),
-        'status': PlutoCell(value: 'منتهى'),
-        'actions': PlutoCell(value: ''),
+            await showDialog(
+              context: context,
+              builder: (dialogContext) {
+                return MultiBlocProvider(
+                  providers: [BlocProvider.value(value: subscriptionBloc)],
+                  child: PayMoneyDialog(memberId: memberID, subId: idSub),
+                );
+              },
+            );
+          },
+        );
       },
     ),
   ];
+
+  @override
+  Widget build(BuildContext context) {
+    return BlocBuilder<SubscriptionBloc, SubscriptionState>(
+      builder: (context, state) {
+        if (state is LoadingState) {
+          return const Center(child: CircularProgressIndicator());
+        }
+
+        if (state is SuccessState) {
+          final List<PlutoRow> rows = state.subscriptions.map((sub) {
+            final bool isActive = sub.isActiveAt(DateTime.now());
+
+            final int timesOfAtendance = sub.timesOdAtendance;
+            final int doneMoney = sub.DoneMoney();
+            final String pack = switch (sub.planId) {
+              SubscriptionPlan.oneMonths => 'شهر',
+              SubscriptionPlan.threeMonths => '3 أشهر',
+              SubscriptionPlan.sixMonths => '6 أشهر',
+              SubscriptionPlan.yearly => 'سنوي',
+              _ => 'غير مشترك',
+            };
+            return PlutoRow(
+              cells: {
+                'idSub': PlutoCell(value: sub.id),
+                'moneyPaid': PlutoCell(
+                  value: doneMoney == 0 ? "خالص" : " متبقي $doneMoney",
+                ),
+                'money': PlutoCell(value: sub.priceInPounds),
+                'attendace': PlutoCell(value: '$timesOfAtendance مره'),
+                'startDate': PlutoCell(
+                  value: sub.startDate.toString().split(' ')[0],
+                ),
+                'endDate': PlutoCell(
+                  value: sub.endDate.toString().split(' ')[0],
+                ),
+                'duration': PlutoCell(value: pack),
+                'status': PlutoCell(value: isActive),
+                'actions': PlutoCell(value: ''),
+              },
+            );
+          }).toList();
+
+          return PlutoGrid(
+            key: UniqueKey(),
+            columns: _getColumns(context),
+            rows: rows,
+            configuration: PlutoGridConfiguration(
+              style: PlutoGridStyleConfig(
+                gridBackgroundColor: Colors.transparent,
+                activatedColor: Colors.transparent,
+                rowColor: Colors.transparent,
+                gridBorderColor: Colors.white12,
+                cellTextStyle: const TextStyle(color: Colors.white),
+                columnTextStyle: const TextStyle(color: Colors.white),
+              ),
+            ),
+            onLoaded: (PlutoGridOnLoadedEvent event) {
+              event.stateManager.setShowColumnFilter(false);
+            },
+          );
+        }
+
+        return const Center(child: Text('لا توجد بيانات اشتراكات'));
+      },
+    );
+  }
 }

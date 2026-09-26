@@ -8,6 +8,10 @@ class SubscriptionEvent with _$SubscriptionEvent {
   const factory SubscriptionEvent.addSubscription({
     required Subscription subscription,
   }) = AddSubscriptionEvent;
+  
+    const factory SubscriptionEvent.addPaymentToSub({
+    required int pay,required String SubId,
+  }) = AddPaymentToSubEvent;
   const factory SubscriptionEvent.getSubscriptionsOfMember({
     required String memberId,
   }) = GetSubscriptionsOfMemberEvent;

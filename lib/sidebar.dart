@@ -21,7 +21,7 @@ class _MainSidebarState extends State<MainSidebar> {
   late final SidebarXController controller;
 
   final List<Widget> screens = [
-    const ProfileMember(),
+    const ProfileMember(memberId: "f",name:"fhdf" ,),
     MemberDetailsPage(),
     const MembersScreen(),
     DialyLoginScreen(),

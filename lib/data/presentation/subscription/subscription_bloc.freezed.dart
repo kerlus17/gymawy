@@ -21,6 +21,7 @@ mixin _$SubscriptionEvent {
     required TResult Function() started,
     required TResult Function() getAllSubscription,
     required TResult Function(Subscription subscription) addSubscription,
+    required TResult Function(int pay, String SubId) addPaymentToSub,
     required TResult Function(String memberId) getSubscriptionsOfMember,
     required TResult Function(String memberId)
         getAttendanceOfmemberAtLastSubscription,
@@ -32,6 +33,7 @@ mixin _$SubscriptionEvent {
     TResult? Function()? started,
     TResult? Function()? getAllSubscription,
     TResult? Function(Subscription subscription)? addSubscription,
+    TResult? Function(int pay, String SubId)? addPaymentToSub,
     TResult? Function(String memberId)? getSubscriptionsOfMember,
     TResult? Function(String memberId)? getAttendanceOfmemberAtLastSubscription,
     TResult? Function(String memberId)? getlastSubscriptionOfMember,
@@ -42,6 +44,7 @@ mixin _$SubscriptionEvent {
     TResult Function()? started,
     TResult Function()? getAllSubscription,
     TResult Function(Subscription subscription)? addSubscription,
+    TResult Function(int pay, String SubId)? addPaymentToSub,
     TResult Function(String memberId)? getSubscriptionsOfMember,
     TResult Function(String memberId)? getAttendanceOfmemberAtLastSubscription,
     TResult Function(String memberId)? getlastSubscriptionOfMember,
@@ -53,6 +56,7 @@ mixin _$SubscriptionEvent {
     required TResult Function(_Started value) started,
     required TResult Function(GetAllSubscriptionEvent value) getAllSubscription,
     required TResult Function(AddSubscriptionEvent value) addSubscription,
+    required TResult Function(AddPaymentToSubEvent value) addPaymentToSub,
     required TResult Function(GetSubscriptionsOfMemberEvent value)
         getSubscriptionsOfMember,
     required TResult Function(
@@ -67,6 +71,7 @@ mixin _$SubscriptionEvent {
     TResult? Function(_Started value)? started,
     TResult? Function(GetAllSubscriptionEvent value)? getAllSubscription,
     TResult? Function(AddSubscriptionEvent value)? addSubscription,
+    TResult? Function(AddPaymentToSubEvent value)? addPaymentToSub,
     TResult? Function(GetSubscriptionsOfMemberEvent value)?
         getSubscriptionsOfMember,
     TResult? Function(GetAttendanceOfmemberAtLastSubscriptionEvent value)?
@@ -80,6 +85,7 @@ mixin _$SubscriptionEvent {
     TResult Function(_Started value)? started,
     TResult Function(GetAllSubscriptionEvent value)? getAllSubscription,
     TResult Function(AddSubscriptionEvent value)? addSubscription,
+    TResult Function(AddPaymentToSubEvent value)? addPaymentToSub,
     TResult Function(GetSubscriptionsOfMemberEvent value)?
         getSubscriptionsOfMember,
     TResult Function(GetAttendanceOfmemberAtLastSubscriptionEvent value)?
@@ -150,6 +156,7 @@ class _$StartedImpl implements _Started {
     required TResult Function() started,
     required TResult Function() getAllSubscription,
     required TResult Function(Subscription subscription) addSubscription,
+    required TResult Function(int pay, String SubId) addPaymentToSub,
     required TResult Function(String memberId) getSubscriptionsOfMember,
     required TResult Function(String memberId)
         getAttendanceOfmemberAtLastSubscription,
@@ -164,6 +171,7 @@ class _$StartedImpl implements _Started {
     TResult? Function()? started,
     TResult? Function()? getAllSubscription,
     TResult? Function(Subscription subscription)? addSubscription,
+    TResult? Function(int pay, String SubId)? addPaymentToSub,
     TResult? Function(String memberId)? getSubscriptionsOfMember,
     TResult? Function(String memberId)? getAttendanceOfmemberAtLastSubscription,
     TResult? Function(String memberId)? getlastSubscriptionOfMember,
@@ -177,6 +185,7 @@ class _$StartedImpl implements _Started {
     TResult Function()? started,
     TResult Function()? getAllSubscription,
     TResult Function(Subscription subscription)? addSubscription,
+    TResult Function(int pay, String SubId)? addPaymentToSub,
     TResult Function(String memberId)? getSubscriptionsOfMember,
     TResult Function(String memberId)? getAttendanceOfmemberAtLastSubscription,
     TResult Function(String memberId)? getlastSubscriptionOfMember,
@@ -194,6 +203,7 @@ class _$StartedImpl implements _Started {
     required TResult Function(_Started value) started,
     required TResult Function(GetAllSubscriptionEvent value) getAllSubscription,
     required TResult Function(AddSubscriptionEvent value) addSubscription,
+    required TResult Function(AddPaymentToSubEvent value) addPaymentToSub,
     required TResult Function(GetSubscriptionsOfMemberEvent value)
         getSubscriptionsOfMember,
     required TResult Function(
@@ -211,6 +221,7 @@ class _$StartedImpl implements _Started {
     TResult? Function(_Started value)? started,
     TResult? Function(GetAllSubscriptionEvent value)? getAllSubscription,
     TResult? Function(AddSubscriptionEvent value)? addSubscription,
+    TResult? Function(AddPaymentToSubEvent value)? addPaymentToSub,
     TResult? Function(GetSubscriptionsOfMemberEvent value)?
         getSubscriptionsOfMember,
     TResult? Function(GetAttendanceOfmemberAtLastSubscriptionEvent value)?
@@ -227,6 +238,7 @@ class _$StartedImpl implements _Started {
     TResult Function(_Started value)? started,
     TResult Function(GetAllSubscriptionEvent value)? getAllSubscription,
     TResult Function(AddSubscriptionEvent value)? addSubscription,
+    TResult Function(AddPaymentToSubEvent value)? addPaymentToSub,
     TResult Function(GetSubscriptionsOfMemberEvent value)?
         getSubscriptionsOfMember,
     TResult Function(GetAttendanceOfmemberAtLastSubscriptionEvent value)?
@@ -290,6 +302,7 @@ class _$GetAllSubscriptionEventImpl implements GetAllSubscriptionEvent {
     required TResult Function() started,
     required TResult Function() getAllSubscription,
     required TResult Function(Subscription subscription) addSubscription,
+    required TResult Function(int pay, String SubId) addPaymentToSub,
     required TResult Function(String memberId) getSubscriptionsOfMember,
     required TResult Function(String memberId)
         getAttendanceOfmemberAtLastSubscription,
@@ -304,6 +317,7 @@ class _$GetAllSubscriptionEventImpl implements GetAllSubscriptionEvent {
     TResult? Function()? started,
     TResult? Function()? getAllSubscription,
     TResult? Function(Subscription subscription)? addSubscription,
+    TResult? Function(int pay, String SubId)? addPaymentToSub,
     TResult? Function(String memberId)? getSubscriptionsOfMember,
     TResult? Function(String memberId)? getAttendanceOfmemberAtLastSubscription,
     TResult? Function(String memberId)? getlastSubscriptionOfMember,
@@ -317,6 +331,7 @@ class _$GetAllSubscriptionEventImpl implements GetAllSubscriptionEvent {
     TResult Function()? started,
     TResult Function()? getAllSubscription,
     TResult Function(Subscription subscription)? addSubscription,
+    TResult Function(int pay, String SubId)? addPaymentToSub,
     TResult Function(String memberId)? getSubscriptionsOfMember,
     TResult Function(String memberId)? getAttendanceOfmemberAtLastSubscription,
     TResult Function(String memberId)? getlastSubscriptionOfMember,
@@ -334,6 +349,7 @@ class _$GetAllSubscriptionEventImpl implements GetAllSubscriptionEvent {
     required TResult Function(_Started value) started,
     required TResult Function(GetAllSubscriptionEvent value) getAllSubscription,
     required TResult Function(AddSubscriptionEvent value) addSubscription,
+    required TResult Function(AddPaymentToSubEvent value) addPaymentToSub,
     required TResult Function(GetSubscriptionsOfMemberEvent value)
         getSubscriptionsOfMember,
     required TResult Function(
@@ -351,6 +367,7 @@ class _$GetAllSubscriptionEventImpl implements GetAllSubscriptionEvent {
     TResult? Function(_Started value)? started,
     TResult? Function(GetAllSubscriptionEvent value)? getAllSubscription,
     TResult? Function(AddSubscriptionEvent value)? addSubscription,
+    TResult? Function(AddPaymentToSubEvent value)? addPaymentToSub,
     TResult? Function(GetSubscriptionsOfMemberEvent value)?
         getSubscriptionsOfMember,
     TResult? Function(GetAttendanceOfmemberAtLastSubscriptionEvent value)?
@@ -367,6 +384,7 @@ class _$GetAllSubscriptionEventImpl implements GetAllSubscriptionEvent {
     TResult Function(_Started value)? started,
     TResult Function(GetAllSubscriptionEvent value)? getAllSubscription,
     TResult Function(AddSubscriptionEvent value)? addSubscription,
+    TResult Function(AddPaymentToSubEvent value)? addPaymentToSub,
     TResult Function(GetSubscriptionsOfMemberEvent value)?
         getSubscriptionsOfMember,
     TResult Function(GetAttendanceOfmemberAtLastSubscriptionEvent value)?
@@ -456,6 +474,7 @@ class _$AddSubscriptionEventImpl implements AddSubscriptionEvent {
     required TResult Function() started,
     required TResult Function() getAllSubscription,
     required TResult Function(Subscription subscription) addSubscription,
+    required TResult Function(int pay, String SubId) addPaymentToSub,
     required TResult Function(String memberId) getSubscriptionsOfMember,
     required TResult Function(String memberId)
         getAttendanceOfmemberAtLastSubscription,
@@ -470,6 +489,7 @@ class _$AddSubscriptionEventImpl implements AddSubscriptionEvent {
     TResult? Function()? started,
     TResult? Function()? getAllSubscription,
     TResult? Function(Subscription subscription)? addSubscription,
+    TResult? Function(int pay, String SubId)? addPaymentToSub,
     TResult? Function(String memberId)? getSubscriptionsOfMember,
     TResult? Function(String memberId)? getAttendanceOfmemberAtLastSubscription,
     TResult? Function(String memberId)? getlastSubscriptionOfMember,
@@ -483,6 +503,7 @@ class _$AddSubscriptionEventImpl implements AddSubscriptionEvent {
     TResult Function()? started,
     TResult Function()? getAllSubscription,
     TResult Function(Subscription subscription)? addSubscription,
+    TResult Function(int pay, String SubId)? addPaymentToSub,
     TResult Function(String memberId)? getSubscriptionsOfMember,
     TResult Function(String memberId)? getAttendanceOfmemberAtLastSubscription,
     TResult Function(String memberId)? getlastSubscriptionOfMember,
@@ -500,6 +521,7 @@ class _$AddSubscriptionEventImpl implements AddSubscriptionEvent {
     required TResult Function(_Started value) started,
     required TResult Function(GetAllSubscriptionEvent value) getAllSubscription,
     required TResult Function(AddSubscriptionEvent value) addSubscription,
+    required TResult Function(AddPaymentToSubEvent value) addPaymentToSub,
     required TResult Function(GetSubscriptionsOfMemberEvent value)
         getSubscriptionsOfMember,
     required TResult Function(
@@ -517,6 +539,7 @@ class _$AddSubscriptionEventImpl implements AddSubscriptionEvent {
     TResult? Function(_Started value)? started,
     TResult? Function(GetAllSubscriptionEvent value)? getAllSubscription,
     TResult? Function(AddSubscriptionEvent value)? addSubscription,
+    TResult? Function(AddPaymentToSubEvent value)? addPaymentToSub,
     TResult? Function(GetSubscriptionsOfMemberEvent value)?
         getSubscriptionsOfMember,
     TResult? Function(GetAttendanceOfmemberAtLastSubscriptionEvent value)?
@@ -533,6 +556,7 @@ class _$AddSubscriptionEventImpl implements AddSubscriptionEvent {
     TResult Function(_Started value)? started,
     TResult Function(GetAllSubscriptionEvent value)? getAllSubscription,
     TResult Function(AddSubscriptionEvent value)? addSubscription,
+    TResult Function(AddPaymentToSubEvent value)? addPaymentToSub,
     TResult Function(GetSubscriptionsOfMemberEvent value)?
         getSubscriptionsOfMember,
     TResult Function(GetAttendanceOfmemberAtLastSubscriptionEvent value)?
@@ -555,6 +579,193 @@ abstract class AddSubscriptionEvent implements SubscriptionEvent {
   Subscription get subscription;
   @JsonKey(ignore: true)
   _$$AddSubscriptionEventImplCopyWith<_$AddSubscriptionEventImpl>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$AddPaymentToSubEventImplCopyWith<$Res> {
+  factory _$$AddPaymentToSubEventImplCopyWith(_$AddPaymentToSubEventImpl value,
+          $Res Function(_$AddPaymentToSubEventImpl) then) =
+      __$$AddPaymentToSubEventImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({int pay, String SubId});
+}
+
+/// @nodoc
+class __$$AddPaymentToSubEventImplCopyWithImpl<$Res>
+    extends _$SubscriptionEventCopyWithImpl<$Res, _$AddPaymentToSubEventImpl>
+    implements _$$AddPaymentToSubEventImplCopyWith<$Res> {
+  __$$AddPaymentToSubEventImplCopyWithImpl(_$AddPaymentToSubEventImpl _value,
+      $Res Function(_$AddPaymentToSubEventImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? pay = null,
+    Object? SubId = null,
+  }) {
+    return _then(_$AddPaymentToSubEventImpl(
+      pay: null == pay
+          ? _value.pay
+          : pay // ignore: cast_nullable_to_non_nullable
+              as int,
+      SubId: null == SubId
+          ? _value.SubId
+          : SubId // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$AddPaymentToSubEventImpl implements AddPaymentToSubEvent {
+  const _$AddPaymentToSubEventImpl({required this.pay, required this.SubId});
+
+  @override
+  final int pay;
+  @override
+  final String SubId;
+
+  @override
+  String toString() {
+    return 'SubscriptionEvent.addPaymentToSub(pay: $pay, SubId: $SubId)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$AddPaymentToSubEventImpl &&
+            (identical(other.pay, pay) || other.pay == pay) &&
+            (identical(other.SubId, SubId) || other.SubId == SubId));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, pay, SubId);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$AddPaymentToSubEventImplCopyWith<_$AddPaymentToSubEventImpl>
+      get copyWith =>
+          __$$AddPaymentToSubEventImplCopyWithImpl<_$AddPaymentToSubEventImpl>(
+              this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() started,
+    required TResult Function() getAllSubscription,
+    required TResult Function(Subscription subscription) addSubscription,
+    required TResult Function(int pay, String SubId) addPaymentToSub,
+    required TResult Function(String memberId) getSubscriptionsOfMember,
+    required TResult Function(String memberId)
+        getAttendanceOfmemberAtLastSubscription,
+    required TResult Function(String memberId) getlastSubscriptionOfMember,
+  }) {
+    return addPaymentToSub(pay, SubId);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? started,
+    TResult? Function()? getAllSubscription,
+    TResult? Function(Subscription subscription)? addSubscription,
+    TResult? Function(int pay, String SubId)? addPaymentToSub,
+    TResult? Function(String memberId)? getSubscriptionsOfMember,
+    TResult? Function(String memberId)? getAttendanceOfmemberAtLastSubscription,
+    TResult? Function(String memberId)? getlastSubscriptionOfMember,
+  }) {
+    return addPaymentToSub?.call(pay, SubId);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? started,
+    TResult Function()? getAllSubscription,
+    TResult Function(Subscription subscription)? addSubscription,
+    TResult Function(int pay, String SubId)? addPaymentToSub,
+    TResult Function(String memberId)? getSubscriptionsOfMember,
+    TResult Function(String memberId)? getAttendanceOfmemberAtLastSubscription,
+    TResult Function(String memberId)? getlastSubscriptionOfMember,
+    required TResult orElse(),
+  }) {
+    if (addPaymentToSub != null) {
+      return addPaymentToSub(pay, SubId);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Started value) started,
+    required TResult Function(GetAllSubscriptionEvent value) getAllSubscription,
+    required TResult Function(AddSubscriptionEvent value) addSubscription,
+    required TResult Function(AddPaymentToSubEvent value) addPaymentToSub,
+    required TResult Function(GetSubscriptionsOfMemberEvent value)
+        getSubscriptionsOfMember,
+    required TResult Function(
+            GetAttendanceOfmemberAtLastSubscriptionEvent value)
+        getAttendanceOfmemberAtLastSubscription,
+    required TResult Function(getlastSubscriptionOfMemberEvent value)
+        getlastSubscriptionOfMember,
+  }) {
+    return addPaymentToSub(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Started value)? started,
+    TResult? Function(GetAllSubscriptionEvent value)? getAllSubscription,
+    TResult? Function(AddSubscriptionEvent value)? addSubscription,
+    TResult? Function(AddPaymentToSubEvent value)? addPaymentToSub,
+    TResult? Function(GetSubscriptionsOfMemberEvent value)?
+        getSubscriptionsOfMember,
+    TResult? Function(GetAttendanceOfmemberAtLastSubscriptionEvent value)?
+        getAttendanceOfmemberAtLastSubscription,
+    TResult? Function(getlastSubscriptionOfMemberEvent value)?
+        getlastSubscriptionOfMember,
+  }) {
+    return addPaymentToSub?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Started value)? started,
+    TResult Function(GetAllSubscriptionEvent value)? getAllSubscription,
+    TResult Function(AddSubscriptionEvent value)? addSubscription,
+    TResult Function(AddPaymentToSubEvent value)? addPaymentToSub,
+    TResult Function(GetSubscriptionsOfMemberEvent value)?
+        getSubscriptionsOfMember,
+    TResult Function(GetAttendanceOfmemberAtLastSubscriptionEvent value)?
+        getAttendanceOfmemberAtLastSubscription,
+    TResult Function(getlastSubscriptionOfMemberEvent value)?
+        getlastSubscriptionOfMember,
+    required TResult orElse(),
+  }) {
+    if (addPaymentToSub != null) {
+      return addPaymentToSub(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class AddPaymentToSubEvent implements SubscriptionEvent {
+  const factory AddPaymentToSubEvent(
+      {required final int pay,
+      required final String SubId}) = _$AddPaymentToSubEventImpl;
+
+  int get pay;
+  String get SubId;
+  @JsonKey(ignore: true)
+  _$$AddPaymentToSubEventImplCopyWith<_$AddPaymentToSubEventImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
 
@@ -632,6 +843,7 @@ class _$GetSubscriptionsOfMemberEventImpl
     required TResult Function() started,
     required TResult Function() getAllSubscription,
     required TResult Function(Subscription subscription) addSubscription,
+    required TResult Function(int pay, String SubId) addPaymentToSub,
     required TResult Function(String memberId) getSubscriptionsOfMember,
     required TResult Function(String memberId)
         getAttendanceOfmemberAtLastSubscription,
@@ -646,6 +858,7 @@ class _$GetSubscriptionsOfMemberEventImpl
     TResult? Function()? started,
     TResult? Function()? getAllSubscription,
     TResult? Function(Subscription subscription)? addSubscription,
+    TResult? Function(int pay, String SubId)? addPaymentToSub,
     TResult? Function(String memberId)? getSubscriptionsOfMember,
     TResult? Function(String memberId)? getAttendanceOfmemberAtLastSubscription,
     TResult? Function(String memberId)? getlastSubscriptionOfMember,
@@ -659,6 +872,7 @@ class _$GetSubscriptionsOfMemberEventImpl
     TResult Function()? started,
     TResult Function()? getAllSubscription,
     TResult Function(Subscription subscription)? addSubscription,
+    TResult Function(int pay, String SubId)? addPaymentToSub,
     TResult Function(String memberId)? getSubscriptionsOfMember,
     TResult Function(String memberId)? getAttendanceOfmemberAtLastSubscription,
     TResult Function(String memberId)? getlastSubscriptionOfMember,
@@ -676,6 +890,7 @@ class _$GetSubscriptionsOfMemberEventImpl
     required TResult Function(_Started value) started,
     required TResult Function(GetAllSubscriptionEvent value) getAllSubscription,
     required TResult Function(AddSubscriptionEvent value) addSubscription,
+    required TResult Function(AddPaymentToSubEvent value) addPaymentToSub,
     required TResult Function(GetSubscriptionsOfMemberEvent value)
         getSubscriptionsOfMember,
     required TResult Function(
@@ -693,6 +908,7 @@ class _$GetSubscriptionsOfMemberEventImpl
     TResult? Function(_Started value)? started,
     TResult? Function(GetAllSubscriptionEvent value)? getAllSubscription,
     TResult? Function(AddSubscriptionEvent value)? addSubscription,
+    TResult? Function(AddPaymentToSubEvent value)? addPaymentToSub,
     TResult? Function(GetSubscriptionsOfMemberEvent value)?
         getSubscriptionsOfMember,
     TResult? Function(GetAttendanceOfmemberAtLastSubscriptionEvent value)?
@@ -709,6 +925,7 @@ class _$GetSubscriptionsOfMemberEventImpl
     TResult Function(_Started value)? started,
     TResult Function(GetAllSubscriptionEvent value)? getAllSubscription,
     TResult Function(AddSubscriptionEvent value)? addSubscription,
+    TResult Function(AddPaymentToSubEvent value)? addPaymentToSub,
     TResult Function(GetSubscriptionsOfMemberEvent value)?
         getSubscriptionsOfMember,
     TResult Function(GetAttendanceOfmemberAtLastSubscriptionEvent value)?
@@ -815,6 +1032,7 @@ class _$GetAttendanceOfmemberAtLastSubscriptionEventImpl
     required TResult Function() started,
     required TResult Function() getAllSubscription,
     required TResult Function(Subscription subscription) addSubscription,
+    required TResult Function(int pay, String SubId) addPaymentToSub,
     required TResult Function(String memberId) getSubscriptionsOfMember,
     required TResult Function(String memberId)
         getAttendanceOfmemberAtLastSubscription,
@@ -829,6 +1047,7 @@ class _$GetAttendanceOfmemberAtLastSubscriptionEventImpl
     TResult? Function()? started,
     TResult? Function()? getAllSubscription,
     TResult? Function(Subscription subscription)? addSubscription,
+    TResult? Function(int pay, String SubId)? addPaymentToSub,
     TResult? Function(String memberId)? getSubscriptionsOfMember,
     TResult? Function(String memberId)? getAttendanceOfmemberAtLastSubscription,
     TResult? Function(String memberId)? getlastSubscriptionOfMember,
@@ -842,6 +1061,7 @@ class _$GetAttendanceOfmemberAtLastSubscriptionEventImpl
     TResult Function()? started,
     TResult Function()? getAllSubscription,
     TResult Function(Subscription subscription)? addSubscription,
+    TResult Function(int pay, String SubId)? addPaymentToSub,
     TResult Function(String memberId)? getSubscriptionsOfMember,
     TResult Function(String memberId)? getAttendanceOfmemberAtLastSubscription,
     TResult Function(String memberId)? getlastSubscriptionOfMember,
@@ -859,6 +1079,7 @@ class _$GetAttendanceOfmemberAtLastSubscriptionEventImpl
     required TResult Function(_Started value) started,
     required TResult Function(GetAllSubscriptionEvent value) getAllSubscription,
     required TResult Function(AddSubscriptionEvent value) addSubscription,
+    required TResult Function(AddPaymentToSubEvent value) addPaymentToSub,
     required TResult Function(GetSubscriptionsOfMemberEvent value)
         getSubscriptionsOfMember,
     required TResult Function(
@@ -876,6 +1097,7 @@ class _$GetAttendanceOfmemberAtLastSubscriptionEventImpl
     TResult? Function(_Started value)? started,
     TResult? Function(GetAllSubscriptionEvent value)? getAllSubscription,
     TResult? Function(AddSubscriptionEvent value)? addSubscription,
+    TResult? Function(AddPaymentToSubEvent value)? addPaymentToSub,
     TResult? Function(GetSubscriptionsOfMemberEvent value)?
         getSubscriptionsOfMember,
     TResult? Function(GetAttendanceOfmemberAtLastSubscriptionEvent value)?
@@ -892,6 +1114,7 @@ class _$GetAttendanceOfmemberAtLastSubscriptionEventImpl
     TResult Function(_Started value)? started,
     TResult Function(GetAllSubscriptionEvent value)? getAllSubscription,
     TResult Function(AddSubscriptionEvent value)? addSubscription,
+    TResult Function(AddPaymentToSubEvent value)? addPaymentToSub,
     TResult Function(GetSubscriptionsOfMemberEvent value)?
         getSubscriptionsOfMember,
     TResult Function(GetAttendanceOfmemberAtLastSubscriptionEvent value)?
@@ -994,6 +1217,7 @@ class _$getlastSubscriptionOfMemberEventImpl
     required TResult Function() started,
     required TResult Function() getAllSubscription,
     required TResult Function(Subscription subscription) addSubscription,
+    required TResult Function(int pay, String SubId) addPaymentToSub,
     required TResult Function(String memberId) getSubscriptionsOfMember,
     required TResult Function(String memberId)
         getAttendanceOfmemberAtLastSubscription,
@@ -1008,6 +1232,7 @@ class _$getlastSubscriptionOfMemberEventImpl
     TResult? Function()? started,
     TResult? Function()? getAllSubscription,
     TResult? Function(Subscription subscription)? addSubscription,
+    TResult? Function(int pay, String SubId)? addPaymentToSub,
     TResult? Function(String memberId)? getSubscriptionsOfMember,
     TResult? Function(String memberId)? getAttendanceOfmemberAtLastSubscription,
     TResult? Function(String memberId)? getlastSubscriptionOfMember,
@@ -1021,6 +1246,7 @@ class _$getlastSubscriptionOfMemberEventImpl
     TResult Function()? started,
     TResult Function()? getAllSubscription,
     TResult Function(Subscription subscription)? addSubscription,
+    TResult Function(int pay, String SubId)? addPaymentToSub,
     TResult Function(String memberId)? getSubscriptionsOfMember,
     TResult Function(String memberId)? getAttendanceOfmemberAtLastSubscription,
     TResult Function(String memberId)? getlastSubscriptionOfMember,
@@ -1038,6 +1264,7 @@ class _$getlastSubscriptionOfMemberEventImpl
     required TResult Function(_Started value) started,
     required TResult Function(GetAllSubscriptionEvent value) getAllSubscription,
     required TResult Function(AddSubscriptionEvent value) addSubscription,
+    required TResult Function(AddPaymentToSubEvent value) addPaymentToSub,
     required TResult Function(GetSubscriptionsOfMemberEvent value)
         getSubscriptionsOfMember,
     required TResult Function(
@@ -1055,6 +1282,7 @@ class _$getlastSubscriptionOfMemberEventImpl
     TResult? Function(_Started value)? started,
     TResult? Function(GetAllSubscriptionEvent value)? getAllSubscription,
     TResult? Function(AddSubscriptionEvent value)? addSubscription,
+    TResult? Function(AddPaymentToSubEvent value)? addPaymentToSub,
     TResult? Function(GetSubscriptionsOfMemberEvent value)?
         getSubscriptionsOfMember,
     TResult? Function(GetAttendanceOfmemberAtLastSubscriptionEvent value)?
@@ -1071,6 +1299,7 @@ class _$getlastSubscriptionOfMemberEventImpl
     TResult Function(_Started value)? started,
     TResult Function(GetAllSubscriptionEvent value)? getAllSubscription,
     TResult Function(AddSubscriptionEvent value)? addSubscription,
+    TResult Function(AddPaymentToSubEvent value)? addPaymentToSub,
     TResult Function(GetSubscriptionsOfMemberEvent value)?
         getSubscriptionsOfMember,
     TResult Function(GetAttendanceOfmemberAtLastSubscriptionEvent value)?

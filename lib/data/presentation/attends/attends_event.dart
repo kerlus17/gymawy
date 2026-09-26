@@ -11,4 +11,7 @@ class AttendsEvent with _$AttendsEvent {
 
   const factory AttendsEvent.addAttendance({required String memberId}) =
       AddAttendanceEvent;
+
+
+      
 }

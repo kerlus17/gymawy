@@ -218,7 +218,7 @@ class MembersView extends StatelessWidget {
                                     ? 'أنثى'
                                     : 'ذكر';
                                 final String pack = switch (lastSub?.planId) {
-                                  SubscriptionPlan.oneMonths => 'شهري',
+                                  SubscriptionPlan.oneMonths =>'شهر',
                                   SubscriptionPlan.threeMonths => '3 أشهر',
                                   SubscriptionPlan.sixMonths => '6 أشهر',
                                   SubscriptionPlan.yearly => 'سنوي',

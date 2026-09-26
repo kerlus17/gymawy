@@ -21,6 +21,7 @@ mixin _$MemberEvent {
     required TResult Function() started,
     required TResult Function(GymMember member) addNewMember,
     required TResult Function() getAllMembers,
+    required TResult Function(String memberId) getOneDetailsMember,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -28,6 +29,7 @@ mixin _$MemberEvent {
     TResult? Function()? started,
     TResult? Function(GymMember member)? addNewMember,
     TResult? Function()? getAllMembers,
+    TResult? Function(String memberId)? getOneDetailsMember,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -35,6 +37,7 @@ mixin _$MemberEvent {
     TResult Function()? started,
     TResult Function(GymMember member)? addNewMember,
     TResult Function()? getAllMembers,
+    TResult Function(String memberId)? getOneDetailsMember,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -43,6 +46,8 @@ mixin _$MemberEvent {
     required TResult Function(_Started value) started,
     required TResult Function(AddNewMemberEvent value) addNewMember,
     required TResult Function(GetAllMembersEvent value) getAllMembers,
+    required TResult Function(GetOneDetailsMemberEvent value)
+        getOneDetailsMember,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -50,6 +55,7 @@ mixin _$MemberEvent {
     TResult? Function(_Started value)? started,
     TResult? Function(AddNewMemberEvent value)? addNewMember,
     TResult? Function(GetAllMembersEvent value)? getAllMembers,
+    TResult? Function(GetOneDetailsMemberEvent value)? getOneDetailsMember,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -57,6 +63,7 @@ mixin _$MemberEvent {
     TResult Function(_Started value)? started,
     TResult Function(AddNewMemberEvent value)? addNewMember,
     TResult Function(GetAllMembersEvent value)? getAllMembers,
+    TResult Function(GetOneDetailsMemberEvent value)? getOneDetailsMember,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -121,6 +128,7 @@ class _$StartedImpl implements _Started {
     required TResult Function() started,
     required TResult Function(GymMember member) addNewMember,
     required TResult Function() getAllMembers,
+    required TResult Function(String memberId) getOneDetailsMember,
   }) {
     return started();
   }
@@ -131,6 +139,7 @@ class _$StartedImpl implements _Started {
     TResult? Function()? started,
     TResult? Function(GymMember member)? addNewMember,
     TResult? Function()? getAllMembers,
+    TResult? Function(String memberId)? getOneDetailsMember,
   }) {
     return started?.call();
   }
@@ -141,6 +150,7 @@ class _$StartedImpl implements _Started {
     TResult Function()? started,
     TResult Function(GymMember member)? addNewMember,
     TResult Function()? getAllMembers,
+    TResult Function(String memberId)? getOneDetailsMember,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -155,6 +165,8 @@ class _$StartedImpl implements _Started {
     required TResult Function(_Started value) started,
     required TResult Function(AddNewMemberEvent value) addNewMember,
     required TResult Function(GetAllMembersEvent value) getAllMembers,
+    required TResult Function(GetOneDetailsMemberEvent value)
+        getOneDetailsMember,
   }) {
     return started(this);
   }
@@ -165,6 +177,7 @@ class _$StartedImpl implements _Started {
     TResult? Function(_Started value)? started,
     TResult? Function(AddNewMemberEvent value)? addNewMember,
     TResult? Function(GetAllMembersEvent value)? getAllMembers,
+    TResult? Function(GetOneDetailsMemberEvent value)? getOneDetailsMember,
   }) {
     return started?.call(this);
   }
@@ -175,6 +188,7 @@ class _$StartedImpl implements _Started {
     TResult Function(_Started value)? started,
     TResult Function(AddNewMemberEvent value)? addNewMember,
     TResult Function(GetAllMembersEvent value)? getAllMembers,
+    TResult Function(GetOneDetailsMemberEvent value)? getOneDetailsMember,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -256,6 +270,7 @@ class _$AddNewMemberEventImpl implements AddNewMemberEvent {
     required TResult Function() started,
     required TResult Function(GymMember member) addNewMember,
     required TResult Function() getAllMembers,
+    required TResult Function(String memberId) getOneDetailsMember,
   }) {
     return addNewMember(member);
   }
@@ -266,6 +281,7 @@ class _$AddNewMemberEventImpl implements AddNewMemberEvent {
     TResult? Function()? started,
     TResult? Function(GymMember member)? addNewMember,
     TResult? Function()? getAllMembers,
+    TResult? Function(String memberId)? getOneDetailsMember,
   }) {
     return addNewMember?.call(member);
   }
@@ -276,6 +292,7 @@ class _$AddNewMemberEventImpl implements AddNewMemberEvent {
     TResult Function()? started,
     TResult Function(GymMember member)? addNewMember,
     TResult Function()? getAllMembers,
+    TResult Function(String memberId)? getOneDetailsMember,
     required TResult orElse(),
   }) {
     if (addNewMember != null) {
@@ -290,6 +307,8 @@ class _$AddNewMemberEventImpl implements AddNewMemberEvent {
     required TResult Function(_Started value) started,
     required TResult Function(AddNewMemberEvent value) addNewMember,
     required TResult Function(GetAllMembersEvent value) getAllMembers,
+    required TResult Function(GetOneDetailsMemberEvent value)
+        getOneDetailsMember,
   }) {
     return addNewMember(this);
   }
@@ -300,6 +319,7 @@ class _$AddNewMemberEventImpl implements AddNewMemberEvent {
     TResult? Function(_Started value)? started,
     TResult? Function(AddNewMemberEvent value)? addNewMember,
     TResult? Function(GetAllMembersEvent value)? getAllMembers,
+    TResult? Function(GetOneDetailsMemberEvent value)? getOneDetailsMember,
   }) {
     return addNewMember?.call(this);
   }
@@ -310,6 +330,7 @@ class _$AddNewMemberEventImpl implements AddNewMemberEvent {
     TResult Function(_Started value)? started,
     TResult Function(AddNewMemberEvent value)? addNewMember,
     TResult Function(GetAllMembersEvent value)? getAllMembers,
+    TResult Function(GetOneDetailsMemberEvent value)? getOneDetailsMember,
     required TResult orElse(),
   }) {
     if (addNewMember != null) {
@@ -370,6 +391,7 @@ class _$GetAllMembersEventImpl implements GetAllMembersEvent {
     required TResult Function() started,
     required TResult Function(GymMember member) addNewMember,
     required TResult Function() getAllMembers,
+    required TResult Function(String memberId) getOneDetailsMember,
   }) {
     return getAllMembers();
   }
@@ -380,6 +402,7 @@ class _$GetAllMembersEventImpl implements GetAllMembersEvent {
     TResult? Function()? started,
     TResult? Function(GymMember member)? addNewMember,
     TResult? Function()? getAllMembers,
+    TResult? Function(String memberId)? getOneDetailsMember,
   }) {
     return getAllMembers?.call();
   }
@@ -390,6 +413,7 @@ class _$GetAllMembersEventImpl implements GetAllMembersEvent {
     TResult Function()? started,
     TResult Function(GymMember member)? addNewMember,
     TResult Function()? getAllMembers,
+    TResult Function(String memberId)? getOneDetailsMember,
     required TResult orElse(),
   }) {
     if (getAllMembers != null) {
@@ -404,6 +428,8 @@ class _$GetAllMembersEventImpl implements GetAllMembersEvent {
     required TResult Function(_Started value) started,
     required TResult Function(AddNewMemberEvent value) addNewMember,
     required TResult Function(GetAllMembersEvent value) getAllMembers,
+    required TResult Function(GetOneDetailsMemberEvent value)
+        getOneDetailsMember,
   }) {
     return getAllMembers(this);
   }
@@ -414,6 +440,7 @@ class _$GetAllMembersEventImpl implements GetAllMembersEvent {
     TResult? Function(_Started value)? started,
     TResult? Function(AddNewMemberEvent value)? addNewMember,
     TResult? Function(GetAllMembersEvent value)? getAllMembers,
+    TResult? Function(GetOneDetailsMemberEvent value)? getOneDetailsMember,
   }) {
     return getAllMembers?.call(this);
   }
@@ -424,6 +451,7 @@ class _$GetAllMembersEventImpl implements GetAllMembersEvent {
     TResult Function(_Started value)? started,
     TResult Function(AddNewMemberEvent value)? addNewMember,
     TResult Function(GetAllMembersEvent value)? getAllMembers,
+    TResult Function(GetOneDetailsMemberEvent value)? getOneDetailsMember,
     required TResult orElse(),
   }) {
     if (getAllMembers != null) {
@@ -435,6 +463,157 @@ class _$GetAllMembersEventImpl implements GetAllMembersEvent {
 
 abstract class GetAllMembersEvent implements MemberEvent {
   const factory GetAllMembersEvent() = _$GetAllMembersEventImpl;
+}
+
+/// @nodoc
+abstract class _$$GetOneDetailsMemberEventImplCopyWith<$Res> {
+  factory _$$GetOneDetailsMemberEventImplCopyWith(
+          _$GetOneDetailsMemberEventImpl value,
+          $Res Function(_$GetOneDetailsMemberEventImpl) then) =
+      __$$GetOneDetailsMemberEventImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String memberId});
+}
+
+/// @nodoc
+class __$$GetOneDetailsMemberEventImplCopyWithImpl<$Res>
+    extends _$MemberEventCopyWithImpl<$Res, _$GetOneDetailsMemberEventImpl>
+    implements _$$GetOneDetailsMemberEventImplCopyWith<$Res> {
+  __$$GetOneDetailsMemberEventImplCopyWithImpl(
+      _$GetOneDetailsMemberEventImpl _value,
+      $Res Function(_$GetOneDetailsMemberEventImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? memberId = null,
+  }) {
+    return _then(_$GetOneDetailsMemberEventImpl(
+      memberId: null == memberId
+          ? _value.memberId
+          : memberId // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$GetOneDetailsMemberEventImpl implements GetOneDetailsMemberEvent {
+  const _$GetOneDetailsMemberEventImpl({required this.memberId});
+
+  @override
+  final String memberId;
+
+  @override
+  String toString() {
+    return 'MemberEvent.getOneDetailsMember(memberId: $memberId)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$GetOneDetailsMemberEventImpl &&
+            (identical(other.memberId, memberId) ||
+                other.memberId == memberId));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, memberId);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$GetOneDetailsMemberEventImplCopyWith<_$GetOneDetailsMemberEventImpl>
+      get copyWith => __$$GetOneDetailsMemberEventImplCopyWithImpl<
+          _$GetOneDetailsMemberEventImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() started,
+    required TResult Function(GymMember member) addNewMember,
+    required TResult Function() getAllMembers,
+    required TResult Function(String memberId) getOneDetailsMember,
+  }) {
+    return getOneDetailsMember(memberId);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? started,
+    TResult? Function(GymMember member)? addNewMember,
+    TResult? Function()? getAllMembers,
+    TResult? Function(String memberId)? getOneDetailsMember,
+  }) {
+    return getOneDetailsMember?.call(memberId);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? started,
+    TResult Function(GymMember member)? addNewMember,
+    TResult Function()? getAllMembers,
+    TResult Function(String memberId)? getOneDetailsMember,
+    required TResult orElse(),
+  }) {
+    if (getOneDetailsMember != null) {
+      return getOneDetailsMember(memberId);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Started value) started,
+    required TResult Function(AddNewMemberEvent value) addNewMember,
+    required TResult Function(GetAllMembersEvent value) getAllMembers,
+    required TResult Function(GetOneDetailsMemberEvent value)
+        getOneDetailsMember,
+  }) {
+    return getOneDetailsMember(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Started value)? started,
+    TResult? Function(AddNewMemberEvent value)? addNewMember,
+    TResult? Function(GetAllMembersEvent value)? getAllMembers,
+    TResult? Function(GetOneDetailsMemberEvent value)? getOneDetailsMember,
+  }) {
+    return getOneDetailsMember?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Started value)? started,
+    TResult Function(AddNewMemberEvent value)? addNewMember,
+    TResult Function(GetAllMembersEvent value)? getAllMembers,
+    TResult Function(GetOneDetailsMemberEvent value)? getOneDetailsMember,
+    required TResult orElse(),
+  }) {
+    if (getOneDetailsMember != null) {
+      return getOneDetailsMember(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class GetOneDetailsMemberEvent implements MemberEvent {
+  const factory GetOneDetailsMemberEvent({required final String memberId}) =
+      _$GetOneDetailsMemberEventImpl;
+
+  String get memberId;
+  @JsonKey(ignore: true)
+  _$$GetOneDetailsMemberEventImplCopyWith<_$GetOneDetailsMemberEventImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc

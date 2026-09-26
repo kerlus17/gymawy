@@ -31,6 +31,7 @@ class SubscriptionAdapter extends TypeAdapter<Subscription> {
         : null;
 
     final notes = reader.read() as String?;
+    final timesOdAtendance = reader.read() as int;
 
     return Subscription(
       id: id,
@@ -45,6 +46,7 @@ class SubscriptionAdapter extends TypeAdapter<Subscription> {
       sessionLimit: sessionLimit,
       cancelledAt: cancelledAt,
       notes: notes,
+      timesOdAtendance:timesOdAtendance,
     );
   }
 
@@ -68,5 +70,6 @@ class SubscriptionAdapter extends TypeAdapter<Subscription> {
     writer.write(obj.sessionLimit);
     writer.write(obj.cancelledAt?.toIso8601String());
     writer.write(obj.notes);
+     writer.write(obj.timesOdAtendance);
   }
 }

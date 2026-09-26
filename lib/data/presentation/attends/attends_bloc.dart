@@ -42,7 +42,8 @@ class AttendsBloc extends Bloc<AttendsEvent, AttendsState> {
       emit(AttendsState.error(errMsg: e.toString()));
     }
   }
-FutureOr<void> addAttends(
+
+  FutureOr<void> addAttends(
     AddAttendanceEvent event,
     Emitter<AttendsState> emit,
   ) async {
@@ -56,16 +57,30 @@ FutureOr<void> addAttends(
       if (member != null) {
         final lenBox1 = _box.values.toList().length.toString();
 
-        final memberSubscriptions = _box2.values
-            .where((subscription) => subscription.memberId == event.memberId)
-            .toList();
+        dynamic targetKey;
+        Subscription? sub;
 
-        if (memberSubscriptions.isEmpty) {
-          emit(const AttendsState.error(errMsg: "لا يوجد اشتراك مسجل لهذا العضو"));
+        for (var entry in _box2.toMap().entries) {
+          if (entry.value.memberId == event.memberId) {
+            targetKey = entry.key;
+            sub = entry.value;
+          }
+        }
+
+        if (sub == null || targetKey == null) {
+          emit(
+            const AttendsState.error(errMsg: "لا يوجد اشتراك مسجل لهذا العضو"),
+          );
           return;
         }
 
-        final String subscriptionId = memberSubscriptions.last.id;
+        final String subscriptionId = sub.id;
+
+        final updatedSub = sub.copyWith(
+          timesOdAtendance: sub.timesOdAtendance + 1,
+        );
+
+        await _box2.put(targetKey, updatedSub);
 
         final attendace = Attendance(
           id: lenBox1,
@@ -161,6 +176,3 @@ FutureOr<void> addAttends(
     }).toList();
   }
 }
-
-
-
